@@ -61,7 +61,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:fontFamily="@font/cairo"
-            android:textSize="@dimen/txt_medium"
+            android:textSize="@dimen/txt_small"
             android:layout_marginBottom="@dimen/margin_large"
             />
 

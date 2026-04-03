@@ -61,112 +61,185 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:fontFamily="@font/cairo"
-            android:textSize="@dimen/txt_medium"
+            android:textSize="@dimen/txt_small"
             android:layout_marginBottom="@dimen/margin_large"
             />
 
-        <TextView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/numero_ce"
-            android:paddingHorizontal="@dimen/margin_small"
-            android:textColor="@color/black"
-            android:textSize="@dimen/txt_small"
-            android:fontFamily="@font/cairo"
-            android:layout_marginTop="@dimen/margin_large"
-            android:layout_marginVertical="@dimen/margin_small"
-            />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
 
-        <EditText
-            android:id="@+id/et_client_ce_number"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/bg_edit_text_blue"
-            android:hint="@string/entrer_numero_ce"
-            android:textSize="@dimen/txt_small"
-            android:paddingHorizontal="@dimen/margin_medium"
-            android:fontFamily="@font/cairo"
-            android:textColorHint="@color/hintGray"
-            android:inputType="text"
-            android:maxLines="1"
-            android:imeOptions="actionNext"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mot_de_passe"
-            android:paddingHorizontal="@dimen/margin_small"
-            android:textColor="@color/black"
-            android:textSize="@dimen/txt_small"
-            android:fontFamily="@font/cairo"
-            android:layout_marginTop="@dimen/margin_large"
-            android:layout_marginVertical="@dimen/margin_small"
-            />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:fontFamily="@font/cairo"
-            app:endIconMode="password_toggle"
-            app:endIconTint="@color/blue"
-            app:hintEnabled="false">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tiet_client_password"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/bg_edit_text_blue"
-                android:hint="@string/entrer_mot_passe"
-                android:inputType="textPassword"
-                android:fontFamily="@font/cairo"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/hintGray"
-                android:textSize="@dimen/txt_small"
-                android:maxLines="1"
-                android:imeOptions="actionNext"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nom de Client"
+                    android:paddingHorizontal="@dimen/margin_small"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_small"
+                    android:fontFamily="@font/cairo"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginVertical="@dimen/margin_small"
+                    />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/confirmation_mot_passe"
-            android:paddingHorizontal="@dimen/margin_small"
-            android:textColor="@color/black"
-            android:textSize="@dimen/txt_small"
-            android:fontFamily="@font/cairo"
-            android:layout_marginTop="@dimen/margin_large"
-            android:layout_marginVertical="@dimen/margin_small"
-            />
+                <EditText
+                    android:id="@+id/et_client_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_edit_text_blue"
+                    android:hint="Entrer votre nom"
+                    android:textSize="@dimen/txt_small"
+                    android:textColor="@color/blue"
+                    android:paddingHorizontal="@dimen/margin_medium"
+                    android:fontFamily="@font/cairo"
+                    android:textColorHint="@color/hintGray"
+                    android:inputType="textPersonName"
+                    android:maxLength="7"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext"
+                    />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:fontFamily="@font/cairo"
-            app:endIconMode="password_toggle"
-            app:endIconTint="@color/blue"
-            app:hintEnabled="false">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/numero_ce"
+                    android:paddingHorizontal="@dimen/margin_small"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_small"
+                    android:fontFamily="@font/cairo"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginVertical="@dimen/margin_small"
+                    />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tiet_client_password_confirmation"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/bg_edit_text_blue"
-                android:hint="@string/confirmer_mot_passe"
-                android:inputType="textPassword"
-                android:fontFamily="@font/cairo"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/hintGray"
-                android:textSize="@dimen/txt_small"
-                android:layout_marginBottom="@dimen/margin_medium"
-                android:maxLines="1"
-                android:imeOptions="actionDone"
-                />
+                <EditText
+                    android:id="@+id/et_client_ce_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_edit_text_blue"
+                    android:hint="@string/entrer_numero_ce"
+                    android:textSize="@dimen/txt_small"
+                    android:textColor="@color/blue"
+                    android:paddingHorizontal="@dimen/margin_medium"
+                    android:fontFamily="@font/cairo"
+                    android:textColorHint="@color/hintGray"
+                    android:inputType="number"
+                    android:maxLength="7"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext"
+                    />
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Adresse e-mail"
+                    android:paddingHorizontal="@dimen/margin_small"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_small"
+                    android:fontFamily="@font/cairo"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginVertical="@dimen/margin_small"
+                    />
 
+                <EditText
+                    android:id="@+id/et_client_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_edit_text_blue"
+                    android:hint="Entrer votre adress email"
+                    android:textSize="@dimen/txt_small"
+                    android:textColor="@color/blue"
+                    android:paddingHorizontal="@dimen/margin_medium"
+                    android:fontFamily="@font/cairo"
+                    android:textColorHint="@color/hintGray"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mot_de_passe"
+                    android:paddingHorizontal="@dimen/margin_small"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_small"
+                    android:fontFamily="@font/cairo"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginVertical="@dimen/margin_small"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cairo"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/blue"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_client_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bg_edit_text_blue"
+                        android:hint="@string/entrer_mot_passe"
+                        android:inputType="textPassword"
+                        android:fontFamily="@font/cairo"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/hintGray"
+                        android:textSize="@dimen/txt_small"
+                        android:maxLines="1"
+                        android:imeOptions="actionNext"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/confirmation_mot_passe"
+                    android:paddingHorizontal="@dimen/margin_small"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_small"
+                    android:fontFamily="@font/cairo"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginVertical="@dimen/margin_small"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cairo"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/blue"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_client_password_confirmation"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bg_edit_text_blue"
+                        android:hint="@string/confirmer_mot_passe"
+                        android:inputType="textPassword"
+                        android:fontFamily="@font/cairo"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/hintGray"
+                        android:textSize="@dimen/txt_small"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:maxLines="1"
+                        android:imeOptions="actionDone"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mb_register"
