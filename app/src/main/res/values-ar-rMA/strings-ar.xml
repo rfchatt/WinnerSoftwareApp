@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Top Software</string>
+
+    <!-- Main -->
+    <string name="headline">هنا نقوم بإصلاح ما تشتريه!</string>
+    <string name="headline_description">خدمة إصلاح سريعة لمنتجاتك. نحن نبسط خدمة ما بعد البيع.</string>
+    <string name="connecter">تسجيل الدخول</string>
+    <string name="registre">إنشاء حساب</string>
+    <string name="espace_entreprise">مساحة الشركة</string>
+    <string name="choisissez_votre_langue">إختر لغتك المفضلة : </string>
+
+    <!-- Client Login -->
+    <string name="connectez_vous_ici">سجل دخولك هنا</string>
+    <string name="bienvenue_a_nouveau">أهلاً بك، لقد اشتقنا لعودتك !</string>
+    <string name="numero_ce">رقم (CE)</string>
+    <string name="entrer_numero_ce">أدخل رقم CE الخاص بك</string>
+    <string name="mot_de_passe">كلمة المرور</string>
+    <string name="entrer_mot_passe">أدخل كلمة المرور الخاصة بك</string>
+    <string name="mot_passe_oublie">نسيت كلمة المرور ؟</string>
+    <string name="creer_nouveau_compte">أنشئ حساب جديد</string>
+
+    <!-- Client Register -->
+    <string name="creer_compte">أنشئ حساب</string>
+    <string name="creer_compte_description">أنشئ حسابًا لاكتشاف جميع خدمات ما بعد البيع لدينا !</string>
+    <string name="confirmation_mot_passe">تأكيد كلمة المرور</string>
+    <string name="confirmer_mot_passe">أكد كلمة مرورك</string>
+    <string name="jai_deja_compte">لدي حساب بالفعل</string>
+
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  Text Sizes (s.m.l)  -->
+    <dimen name="txt_smallest">10sp</dimen>
+    <dimen name="txt_small">14sp</dimen>
+    <dimen name="txt_medium">18sp</dimen>
+    <dimen name="txt_large">23sp</dimen>
+    <dimen name="txt_largest">30sp</dimen>
+
+    <!--  Corners Radius (1.2)  -->
+    <dimen name="corner1">12dp</dimen>
+    <dimen name="corner2">30dp</dimen>
+
+    <!--  Margines Sizes (s.m.l)  -->
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_large">30dp</dimen>
+
+</resources>

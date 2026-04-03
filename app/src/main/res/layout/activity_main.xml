@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/header_frame"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_services"
+            android:scaleType="centerCrop"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_fade_gradient"
+            />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_medium"
+        android:paddingVertical="@dimen/margin_large"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/header_frame"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:src="@drawable/ic_logo"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/txt_largest"
+            android:fontFamily="@font/playfair"
+            android:textStyle="bold"
+            android:paddingHorizontal="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:text="@string/headline"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_small"
+            android:fontFamily="@font/cairo"
+            android:text="@string/headline_description"
+            android:layout_marginVertical="@dimen/margin_medium"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_login"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cornerRadius="@dimen/corner1"
+                android:text="@string/connecter"
+                android:textStyle="bold"
+                android:fontFamily="@font/cairo"
+                android:textSize="@dimen/txt_medium"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/blue"
+                android:elevation="8dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_register"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:minWidth="150dp"
+                app:cornerRadius="@dimen/corner1"
+                android:text="@string/registre"
+                android:textStyle="bold"
+                android:fontFamily="@font/cairo"
+                android:textSize="@dimen/txt_medium"
+                android:textColor="@color/blue"
+                android:backgroundTint="@color/white"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp"
+                android:elevation="8dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_espace_entreprise"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cornerRadius="@dimen/corner1"
+                android:text="@string/espace_entreprise"
+                android:textStyle="bold"
+                android:fontFamily="@font/cairo"
+                android:textSize="@dimen/txt_medium"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/blue"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:elevation="8dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margin_medium"
+                android:paddingHorizontal="@dimen/margin_large"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ln_arLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_lang_ar"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AR"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/txt_smallest"
+                        android:fontFamily="@font/playfair"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_frLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_lang_fr"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FR"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/txt_smallest"
+                        android:fontFamily="@font/playfair"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

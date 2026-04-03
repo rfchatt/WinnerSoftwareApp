@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Top Software</string>
+
+    <!-- Main -->
+    <string name="headline">Nous réparons ce que vous achetez !</string>
+    <string name="headline_description">Service de réparation rapide pour vos produits. Nous simplifions votre service après-vente.</string>
+    <string name="connecter">Connecter</string>
+    <string name="registre">Registre</string>
+    <string name="espace_entreprise">Espace d\'entreprise</string>
+    <string name="choisissez_votre_langue">Choisissez votre langue préférée : </string>
+
+    <!-- Client Login -->
+    <string name="connectez_vous_ici">Connectez-vous ici</string>
+    <string name="bienvenue_a_nouveau">Bienvenue à nouveau, vous nous \navez manqué !</string>
+    <string name="numero_ce">Numero de (CE)</string>
+    <string name="entrer_numero_ce">Entrer votre numero CE</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="entrer_mot_passe">Entrer votre mot de passe</string>
+    <string name="mot_passe_oublie">Mot de passe oublié ?</string>
+    <string name="creer_nouveau_compte">Créer un nouveau compte</string>
+
+    <!-- Client Register -->
+    <string name="creer_compte">Créer un compte</string>
+    <string name="creer_compte_description">Créez un compte pour découvrir tous nos services après-vente !</string>
+    <string name="confirmation_mot_passe">Confirmation de mot de passe</string>
+    <string name="confirmer_mot_passe">Confirmer votre mot de passe</string>
+    <string name="jai_deja_compte">J\'ai déjà un compte</string>
+
+</resources>
