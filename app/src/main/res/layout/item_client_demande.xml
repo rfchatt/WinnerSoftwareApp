@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingVertical="3dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:cardCornerRadius="@dimen/corner1"
+        app:strokeColor="@color/blue"
+        app:strokeWidth="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="@dimen/margin_medium">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/iconContainer1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/corner2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_appicon" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/titleDev1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:fontFamily="@font/cairo"
+                android:text="Thermique"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/iconContainer1"
+                app:layout_constraintTop_toTopOf="@id/iconContainer1" />
+
+            <TextView
+                android:id="@+id/subTitleDev1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Démande valide le 2026/04/04"
+                android:textColor="@color/hintGray"
+                android:textSize="@dimen/txt_smallest"
+                app:layout_constraintStart_toStartOf="@id/titleDev1"
+                app:layout_constraintTop_toBottomOf="@id/titleDev1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairo"
+                android:paddingHorizontal="@dimen/margin_small"
+                android:text="Validé"
+                android:textColor="@color/green"
+                android:textSize="@dimen/txt_smallest"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

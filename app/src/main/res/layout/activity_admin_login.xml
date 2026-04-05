@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
     android:background="@color/black"
-    tools:context=".Client.clientLogin">
+    tools:context=".Admin.adminLogin">
 
     <FrameLayout
         android:id="@+id/header_frame"
@@ -46,7 +46,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/connectez_vous_ici"
+            android:text="Espace Admin"
             android:gravity="center"
             android:textColor="@color/blue"
             android:fontFamily="@font/playfair"
@@ -69,7 +69,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/numero_ce"
+            android:text="Adress e-mail"
             android:paddingHorizontal="@dimen/margin_small"
             android:textColor="@color/black"
             android:textSize="@dimen/txt_small"
@@ -78,11 +78,11 @@
             />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/edt_ce_number"
+            android:id="@+id/edt_admin_email"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/bg_border_radius_blue"
-            android:hint="@string/entrer_numero_ce"
+            android:hint="Entrer votre adress email"
             android:textSize="@dimen/txt_small"
             android:textColor="@color/blue"
             android:paddingHorizontal="@dimen/margin_medium"
@@ -114,7 +114,7 @@
             app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_client_password"
+                android:id="@+id/edt_admin_password"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/bg_border_radius_blue"
@@ -126,26 +126,13 @@
                 android:textSize="@dimen/txt_small"
                 android:maxLines="1"
                 android:imeOptions="actionDone"
+            android:layout_marginBottom="@dimen/margin_large"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/tv_forgot_pasword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mot_passe_oublie"
-            android:gravity="end"
-            android:textColor="@color/blue"
-            android:textStyle="bold"
-            android:textSize="@dimen/txt_small"
-            android:fontFamily="@font/cairo"
-            android:layout_marginTop="@dimen/margin_small"
-            android:layout_marginBottom="@dimen/margin_medium"
-            />
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mb_client_login"
+            android:id="@+id/mb_admin_login"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             app:cornerRadius="@dimen/corner1"
@@ -155,18 +142,6 @@
             android:text="@string/connecter"
             android:textSize="@dimen/txt_medium"
             android:fontFamily="@font/cairo"
-            />
-
-        <TextView
-            android:id="@+id/tv_create_new_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/creer_nouveau_compte"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/txt_small"
-            android:fontFamily="@font/cairo"
-            android:layout_marginTop="@dimen/margin_large"
             />
 
     </LinearLayout>

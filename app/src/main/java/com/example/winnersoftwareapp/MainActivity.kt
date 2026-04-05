@@ -7,10 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.winnersoftwareapp.Client.clientLogin
 import com.example.winnersoftwareapp.Client.clientRegister
+import com.example.winnersoftwareapp.Admin.adminLogin
 import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         mb_espace_entreprise.setOnClickListener {
-
+            startActivity(Intent(this, adminLogin::class.java))
         }
 
         ln_arLanguage.setOnClickListener {

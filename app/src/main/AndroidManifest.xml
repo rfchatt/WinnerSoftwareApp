@@ -25,6 +25,16 @@
 
         <activity android:name=".Client.clientRegister" android:exported="false"/>
 
+        <activity android:name=".Client.clientHome" android:exported="false"/>
+
+        <activity android:name=".Client.clientTicket" android:exported="false"/>
+
+        <activity android:name=".Client.clientDemande" android:exported="false"/>
+
+        <activity android:name=".Admin.adminLogin" android:exported="false"/>
+
+        <activity android:name=".Admin.adminHome" android:exported="false"/>
+
     </application>
 
 </manifest>
