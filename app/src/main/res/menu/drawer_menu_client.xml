@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Accueil"
+            />
+
+        <item
+            android:id="@+id/nav_my_demandes"
+            android:icon="@drawable/ic_ticket"
+            android:title="Mes Demandes"
+            />
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profil"
+            android:title="Mon Profil"
+            />
+
+    </group>
+
+    <item android:title="Assistance">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_support"
+                android:icon="@drawable/ic_support"
+                android:title="Aide &amp; Support"
+                />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_back"
+                android:title="Déconnexion"
+                />
+        </menu>
+
+    </item>
+
+</menu>

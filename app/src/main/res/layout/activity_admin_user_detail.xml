@@ -47,13 +47,15 @@
             android:padding="@dimen/margin_medium">
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivUserDetailPhoto"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:padding="2dp"
                 android:src="@drawable/ic_appicon"
-                />
+                app:strokeColor="@color/softGray"
+                app:strokeWidth="2dp" />
 
             <TextView
                 android:id="@+id/tvDetailName"
@@ -92,23 +94,110 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <include
-                layout="@layout/item_detail_row"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_appicon"
+                    app:tint="@color/blue" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo"
+                        android:text="Numéro CE"
+                        android:textColor="@color/gray"
+                        android:textSize="10sp" />
+                    <TextView
+                        android:id="@+id/tvDetailCE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo"
+                        android:text="CE-2026-X88"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
 
-            <include
-                layout="@layout/item_detail_row"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp" />
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_appicon"
+                    app:tint="@color/blue" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo"
+                        android:text="Adresse Email"
+                        android:textColor="@color/gray"
+                        android:textSize="10sp" />
+                    <TextView
+                        android:id="@+id/tvDetailEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo"
+                        android:text="contact@client.com"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
 
-            <include
-                layout="@layout/item_detail_row"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp" />
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_appicon"
+                    app:tint="@color/blue" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo"
+                        android:text="Téléphone"
+                        android:textColor="@color/gray"
+                        android:textSize="10sp" />
+                    <TextView
+                        android:id="@+id/tvDetailPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo"
+                        android:text="+212 600-000000"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -132,7 +221,6 @@
             android:textColor="@color/white"
             app:backgroundTint="@color/blue"
             app:cornerRadius="@dimen/corner1"
-            app:icon="@drawable/ic_appicon"
             />
 
         <LinearLayout
@@ -152,7 +240,6 @@
                 android:text="Appeler"
                 android:textColor="@color/black"
                 app:cornerRadius="@dimen/corner1"
-                app:icon="@drawable/ic_appicon"
                 app:iconTint="@color/blue"
                 app:strokeColor="@color/blue" />
 
@@ -167,9 +254,9 @@
                 android:text="Supprimer"
                 android:textColor="@color/red"
                 app:cornerRadius="@dimen/corner1"
-                app:icon="@drawable/ic_appicon"
                 app:iconTint="@color/red"
-                app:strokeColor="@color/red" />
+                app:strokeColor="@color/red"
+                />
 
         </LinearLayout>
 

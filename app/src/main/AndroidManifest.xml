@@ -31,9 +31,13 @@
 
         <activity android:name=".Client.clientDemande" android:exported="false"/>
 
+        <activity android:name=".Client.clientProfil" android:exported="false"/>
+
         <activity android:name=".Admin.adminLogin" android:exported="false"/>
 
         <activity android:name=".Admin.adminHome" android:exported="false"/>
+
+        <activity android:name=".Admin.adminClientDetails" android:exported="false"/>
 
     </application>
 

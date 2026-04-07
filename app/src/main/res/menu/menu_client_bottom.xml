@@ -13,7 +13,7 @@
     <item
         android:id="@+id/home"
         app:showAsAction="always"
-        android:title="Home"
+        android:title="Tableau de Bord"
         android:icon="@drawable/ic_home"
         />
 

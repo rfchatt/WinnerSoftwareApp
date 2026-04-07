@@ -24,7 +24,6 @@
             android:layout_height="40dp"
             android:padding="8dp"
             android:src="@drawable/ic_appicon"
-            app:tint="@color/blue"
             />
 
         <LinearLayout
@@ -46,12 +45,13 @@
                 />
 
             <TextView
-                android:id="@+id/tvUserEmail"
+                android:id="@+id/tvClientCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Attente de vérification DB..."
-                android:textColor="@color/gray"
+                android:text="CE: 2026-X88"
+                android:textColor="@color/blue"
                 android:textSize="12sp"
+                android:textStyle="bold"
                 android:fontFamily="@font/cairo"
                 />
 
@@ -67,7 +67,6 @@
             android:textSize="12sp"
             android:textStyle="bold"
             android:fontFamily="@font/cairo"
-            app:icon="@drawable/ic_check_circle"
             app:iconTint="@color/blue" />
 
     </LinearLayout>

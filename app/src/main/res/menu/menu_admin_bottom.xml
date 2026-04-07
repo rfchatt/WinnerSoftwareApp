@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/admin_clients"
+        android:icon="@drawable/ic_client"
+        android:title="Clients"
+        />
+
+    <item
+        android:id="@+id/admin_home"
+        android:icon="@drawable/ic_home"
+        android:title="Tableau de Bord"
+        />
+
+    <item
+        android:id="@+id/admin_requests"
+        android:icon="@drawable/ic_ticket"
+        android:title="Demandes"
+        />
+
+</menu>
