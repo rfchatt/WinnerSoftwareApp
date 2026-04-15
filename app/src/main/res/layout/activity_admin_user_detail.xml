@@ -5,40 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:fitsSystemWindows="true">
+    android:background="@color/background_main"
+    android:fitsSystemWindows="true"
+    tools:context=".Admin.adminClientDetails">
 
-    <LinearLayout
-        android:id="@+id/header"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="@dimen/margin_medium"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_back"
-            app:tint="@color/blue" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/playfair"
-            android:text="Vérification Profil"
-            android:textColor="@color/blue"
-            android:textSize="@dimen/txt_medium"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue"
+        app:title="Détails du Client"
+        app:titleTextColor="@color/pure_white"
+        app:navigationIcon="@android:drawable/ic_menu_revert"
+        app:navigationIconTint="@color/pure_white"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/layoutActions"
-        app:layout_constraintTop_toBottomOf="@id/header">
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,220 +32,57 @@
             android:orientation="vertical"
             android:padding="@dimen/margin_medium">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/ivUserDetailPhoto"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:padding="2dp"
-                android:src="@drawable/ic_appicon"
-                app:strokeColor="@color/softGray"
-                app:strokeWidth="2dp" />
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/corner1"
+                app:cardBackgroundColor="@color/card_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_medium">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Informations Personnelles"
+                        android:textColor="@color/blue"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/cairo" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/softGray" android:layout_marginVertical="12dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nom Complet" android:textColor="@color/hintGray" android:textSize="12sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mohammed Ahmed" android:textColor="@color/text_main" android:textSize="16sp" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="E-mail" android:textColor="@color/hintGray" android:textSize="12sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="mohammed@example.com" android:textColor="@color/text_main" android:textSize="16sp" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Téléphone" android:textColor="@color/hintGray" android:textSize="12sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+212 600 000 000" android:textColor="@color/text_main" android:textSize="16sp" android:textStyle="bold"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
-                android:id="@+id/tvDetailName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/cairo"
-                android:gravity="center"
-                android:text="Ahmed El Mansouri"
-                android:textColor="@color/black"
-                android:textSize="@dimen/txt_medium"
-                android:textStyle="bold" />
+                android:layout_marginTop="24dp"
+                android:text="Historique des Tickets"
+                android:textColor="@color/text_main"
+                android:textStyle="bold"
+                android:fontFamily="@font/cairo" />
 
-            <TextView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_client_tickets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/cairo"
-                android:gravity="center"
-                android:text="Nouvel Utilisateur en attente"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/txt_smallest"
-                />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="32dp"
-                android:background="@color/softGray" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/cairo"
-                android:text="INFORMATIONS COMPLÈTES"
-                android:textColor="@color/blue"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="12dp">
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_appicon"
-                    app:tint="@color/blue" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/cairo"
-                        android:text="Numéro CE"
-                        android:textColor="@color/gray"
-                        android:textSize="10sp" />
-                    <TextView
-                        android:id="@+id/tvDetailCE"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/cairo"
-                        android:text="CE-2026-X88"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="12dp">
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_appicon"
-                    app:tint="@color/blue" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/cairo"
-                        android:text="Adresse Email"
-                        android:textColor="@color/gray"
-                        android:textSize="10sp" />
-                    <TextView
-                        android:id="@+id/tvDetailEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/cairo"
-                        android:text="contact@client.com"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="12dp">
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_appicon"
-                    app:tint="@color/blue" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/cairo"
-                        android:text="Téléphone"
-                        android:textColor="@color/gray"
-                        android:textSize="10sp" />
-                    <TextView
-                        android:id="@+id/tvDetailPhone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/cairo"
-                        android:text="+212 600-000000"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_marginTop="8dp"
+                tools:listitem="@layout/item_admin_demande" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <LinearLayout
-        android:id="@+id/layoutActions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:padding="@dimen/margin_medium"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnApprove"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:fontFamily="@font/cairo"
-            android:text="Vérifier et Autoriser"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/blue"
-            app:cornerRadius="@dimen/corner1"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCall"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="6dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/cairo"
-                android:text="Appeler"
-                android:textColor="@color/black"
-                app:cornerRadius="@dimen/corner1"
-                app:iconTint="@color/blue"
-                app:strokeColor="@color/blue" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDelete"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="6dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/cairo"
-                android:text="Supprimer"
-                android:textColor="@color/red"
-                app:cornerRadius="@dimen/corner1"
-                app:iconTint="@color/red"
-                app:strokeColor="@color/red"
-                />
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

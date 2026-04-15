@@ -6,60 +6,48 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:context=".Admin.adminHome">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="@color/background_main">
 
+        <!-- Header -->
         <LinearLayout
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/white"
             android:gravity="center_vertical"
+            android:background="@color/card_bg"
             android:paddingHorizontal="@dimen/margin_medium"
+            android:elevation="4dp"
             app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/logo"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                app:cardCornerRadius="@dimen/corner2">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_appicon"
-                    android:contentDescription="Logo" />
-
-            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/playfair"
-                android:text="Winner Software"
+                android:gravity="center_vertical"
+                android:text="Admin Panel"
                 android:textColor="@color/blue"
                 android:textSize="@dimen/txt_medium"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/playfair" />
 
             <ImageView
                 android:id="@+id/iv_hamburger"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:padding="8dp"
                 android:src="@drawable/ic_hamburger"
+                android:padding="8dp"
                 android:contentDescription="Menu"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="?attr/selectableItemBackgroundBorderless" />
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/blue"
+                />
 
         </LinearLayout>
 
@@ -78,105 +66,130 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tableau de Bord Société"
-                    android:textColor="@color/black"
+                    android:text="Statistiques Globales"
+                    android:textColor="@color/text_main"
                     android:textSize="@dimen/txt_medium"
-                    android:fontFamily="@font/cairo"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/cairo" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:columnCount="2"
+                    android:rowCount="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="@dimen/corner1"
+                        app:cardBackgroundColor="@color/blue">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="24"
+                                android:textColor="@color/pure_white"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tickets Ouverts"
+                                android:textColor="@color/pure_white"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_columnWeight="1"
+                        android:layout_marginStart="8dp"
+                        app:cardCornerRadius="@dimen/corner1"
+                        app:cardBackgroundColor="@color/green">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="152"
+                                android:textColor="@color/pure_white"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Clients Totaux"
+                                android:textColor="@color/pure_white"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </GridLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:text="Dernières Demandes"
+                    android:textColor="@color/text_main"
+                    android:textSize="@dimen/txt_small"
                     android:fontFamily="@font/cairo"
-                    android:text="Gestion opérationnelle et maintenance système."
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/txt_small" />
+                    android:textStyle="bold" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="@dimen/margin_medium"
-                    android:background="@color/softGray" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/cairo"
-                        android:text="DEMANDES DE SERVICE"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/txt_small"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_see_all_demandes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/cairo"
-                        android:text="Voir tout"
-                        android:textColor="@color/blue"
-                        android:textSize="@dimen/txt_small" />
-
-                </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_service_requests"
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small"
-                    android:minHeight="100dp"
-                    tools:listitem="@layout/item_admin_demande" />
+                    android:minHeight="100dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_admin_demandes"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/cairo"
-                        android:text="VÉRIFICATIONS DES PROFILS"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/txt_small"
-                        android:textStyle="bold" />
+                        android:visibility="gone"
+                        tools:listitem="@layout/item_admin_demande"
+                        tools:itemCount="3"/>
 
-                    <TextView
-                        android:id="@+id/tv_see_all_checks"
+                    <ProgressBar
+                        android:id="@+id/pb_admin_loading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminateTint="@color/blue"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/tv_admin_empty_demandes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Aucune demande récente"
+                        android:textColor="@color/hintGray"
+                        android:textSize="@dimen/txt_small"
                         android:fontFamily="@font/cairo"
-                        android:text="Voir tout"
-                        android:textColor="@color/blue"
-                        android:textSize="@dimen/txt_small" />
+                        android:visibility="gone" />
 
-                </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_checks"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    tools:listitem="@layout/item_newclient_validation" />
+                </FrameLayout>
 
             </LinearLayout>
-
         </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/card_bg"
             app:itemIconSize="24dp"
             app:itemIconTint="@color/blue"
             app:itemTextColor="@color/blue"
@@ -192,13 +205,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/white"
+        android:background="@color/background_main"
         app:headerLayout="@layout/nav_header_admin"
         app:menu="@menu/drawer_menu_admin"
         app:itemIconTint="@color/blue"
-        app:itemTextColor="@color/black"
-        app:itemTextAppearanceActive="@style/TextAppearance.AppCompat.Body2"
-        app:itemShapeFillColor="@color/softGray"
+        app:itemTextColor="@color/text_main"
         />
 
 </androidx.drawerlayout.widget.DrawerLayout>

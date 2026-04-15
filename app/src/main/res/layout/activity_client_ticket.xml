@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/black"
+    android:background="@color/background_main"
     android:fitsSystemWindows="true"
     tools:context=".Client.clientTicket">
 
@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@android:color/white">
+        android:background="@color/card_bg"
+        app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -25,6 +26,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_logo"
+                app:tint="@color/blue"
                 />
 
             <TextView
@@ -32,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Formulaire de Ticket"
-                android:textColor="@color/black"
+                android:textColor="@color/text_main"
                 android:textSize="@dimen/txt_medium"
                 android:fontFamily="@font/playfair"
                 android:textStyle="bold"
@@ -45,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
-        android:background="@color/white"
+        android:background="@color/background_main"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
@@ -72,10 +74,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:text="Sélectionnez la catégorie de votre problème pour être mis en relation avec l'expert approprié."
-                android:textColor="@color/black"
+                android:text="Sélectionnez la catégorie de votre problème pour être mis en relation with l'expert approprié."
+                android:textColor="@color/text_main"
                 android:fontFamily="@font/cairo"
                 android:textSize="@dimen/txt_small"
+                android:alpha="0.8"
                 android:lineSpacingExtra="4dp"
                 />
 
@@ -94,7 +97,7 @@
                     android:text="Logiciel"
                     android:fontFamily="@font/cairo"
                     android:textSize="@dimen/txt_small"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/text_main"
                     app:buttonTint="@color/blue"
                     android:layout_marginEnd="@dimen/margin_small"
                     />
@@ -107,7 +110,7 @@
                     android:text="Matériel"
                     android:fontFamily="@font/cairo"
                     android:textSize="@dimen/txt_small"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/text_main"
                     app:buttonTint="@color/blue"
                     android:layout_marginStart="@dimen/margin_small"
                     />
@@ -117,33 +120,31 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/margin_large"
                 android:text="PRODUIT SPÉCIFIQUE"
                 android:textSize="@dimen/txt_small"
                 android:textStyle="bold"
                 android:fontFamily="@font/cairo"
-                android:textColor="@color/black"
+                android:textColor="@color/text_main"
+                android:alpha="0.7"
                 />
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:boxCornerRadiusTopStart="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusBottomEnd="12dp">
+                android:layout_marginTop="@dimen/margin_small"
+                app:boxStrokeColor="@color/blue"
+                app:hintTextColor="@color/blue"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.MediumComponent">
 
                 <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Sélectionner un produit..."
                     android:textSize="@dimen/txt_small"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/hintGray"
+                    android:textColor="@color/text_main"
                     android:fontFamily="@font/cairo"
-                    android:background="@drawable/bg_border_radius_blue"
                     android:inputType="none"
                     />
 
@@ -152,26 +153,35 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/margin_large"
                 android:text="DESCRIPTION DU PROBLÈME"
                 android:textSize="@dimen/txt_small"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_main"
                 android:fontFamily="@font/cairo"
+                android:alpha="0.7"
                 />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_border_radius_blue"
-                android:gravity="top"
-                android:textColorHint="@color/hintGray"
-                android:textColor="@color/black"
-                android:padding="@dimen/margin_medium"
-                android:hint="Décrivez les symptômes..."
-                android:textSize="@dimen/txt_small"
-                />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                app:boxStrokeColor="@color/blue"
+                app:hintTextColor="@color/blue"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.MediumComponent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:gravity="top"
+                    android:textColor="@color/text_main"
+                    android:hint="Décrivez les symptômes..."
+                    android:textSize="@dimen/txt_small"
+                    android:fontFamily="@font/cairo"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -179,53 +189,55 @@
                 android:layout_marginTop="@dimen/margin_medium"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="@dimen/margin_large"
+                android:background="@drawable/bg_border_radius_blue"
+                android:backgroundTint="@color/softGray">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ic_capture"
-                    android:alpha="0.5"
+                    app:tint="@color/blue"
+                    android:alpha="0.6"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Glissez-déposez une capture d'écran"
+                    android:text="Appuyez pour ajouter une image"
                     android:textAlignment="center"
                     android:layout_marginVertical="@dimen/margin_small"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/text_main"
                     android:fontFamily="@font/cairo"
                     android:textSize="@dimen/txt_smallest"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_select_image"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selectioner"
+                    android:fontFamily="@font/cairo"
+                    android:textSize="@dimen/txt_smallest"
+                    app:cornerRadius="@dimen/margin_medium"
                     />
 
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_select_image"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Selectioner une Image"
-                android:fontFamily="@font/cairo"
-                android:textSize="@dimen/txt_smallest"
-                android:textColor="@color/blue"
-                android:layout_marginVertical="@dimen/margin_small"
-                app:strokeColor="@color/blue"
-                app:cornerRadius="@dimen/margin_medium"
-                />
-
-            <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_marginTop="@dimen/margin_large"
                 android:layout_marginBottom="@dimen/margin_medium"
                 android:text="Envoyer la demande"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/blue"
-                android:textColor="@color/white"
+                android:textColor="@color/pure_white"
                 app:cornerRadius="@dimen/corner1"
                 android:textSize="@dimen/txt_medium"
                 android:fontFamily="@font/cairo"
+                android:elevation="4dp"
                 />
 
         </LinearLayout>
@@ -236,7 +248,7 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/card_bg"
         app:itemIconSize="24dp"
         app:itemIconTint="@color/blue"
         app:itemTextColor="@color/blue"
@@ -244,6 +256,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_client_bottom"
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

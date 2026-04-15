@@ -5,218 +5,236 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:background="@color/background_main"
+    android:fitsSystemWindows="true"
+    tools:context=".Client.clientProfil">
 
     <LinearLayout
-        android:id="@+id/header"
+        android:id="@+id/profile_header"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="@dimen/margin_medium"
+        android:layout_height="220dp"
+        android:background="@color/blue"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="32dp"
-            android:layout_height="match_parent"
-            android:padding="4dp"
-            android:src="@drawable/ic_back"
-            app:tint="@color/blue" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="4dp"
+            app:strokeColor="@color/pure_white"
+            app:strokeWidth="2dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_user"
+                android:padding="20dp"
+                app:tint="@color/blue"
+                android:scaleType="centerInside"
+                android:contentDescription="Profile Picture" />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:layout_marginStart="16dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/playfair"
-            android:text="Mon Profil"
-            android:textColor="@color/blue"
-            android:textSize="@dimen/txt_medium"
-            android:textStyle="bold" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Mohammed Ahmed"
+            android:textColor="@color/pure_white"
+            android:textSize="@dimen/txt_large"
+            android:textStyle="bold"
+            android:fontFamily="@font/cairo" />
 
-        <ImageView
-            android:id="@+id/btnEditProfile"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:padding="8dp"
-            android:src="@drawable/ic_edit"
-            app:tint="@color/blue"
-            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Client Premium"
+            android:textColor="@color/pure_white"
+            android:alpha="0.8"
+            android:textSize="@dimen/txt_small"
+            android:fontFamily="@font/cairo" />
 
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header">
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintTop_toBottomOf="@id/profile_header">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/white"
             android:padding="@dimen/margin_medium">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/ivClientProfilePhoto"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:src="@drawable/ic_appicon"
-                />
-
-            <TextView
-                android:id="@+id/tvClientProfileName"
+            <!-- Information Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:fontFamily="@font/cairo"
-                android:gravity="center"
-                android:text="Mohammed Ahmed"
-                android:textColor="@color/black"
-                android:textSize="@dimen/txt_medium"
-                android:textStyle="bold" />
+                app:cardCornerRadius="@dimen/corner1"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_bg">
 
-            <TextView
-                android:id="@+id/tvClientStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/cairo"
-                android:gravity="center"
-                android:text="Membre Vérifié"
-                android:textColor="@color/green"
-                android:textSize="@dimen/txt_smallest"
-                android:textStyle="bold"
-                />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="32dp"
-                android:background="@color/softGray" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/cairo"
-                android:text="MES COORDONNÉES"
-                android:textColor="@color/blue"
-                android:textSize="@dimen/txt_small"
-                android:textStyle="bold"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin_medium"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="@dimen/margin_large">
-
-                <TextView
-                    android:id="@+id/tvProfileFullName"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cairo"
-                    android:text="Mohammed Ahmed"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_medium">
 
-            </LinearLayout>
+                    <!-- Email Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="8dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_email"
+                            app:tint="@color/blue" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Adresse e-mail"
+                                android:textColor="@color/hintGray"
+                                android:textSize="@dimen/txt_smallest"
+                                android:fontFamily="@font/cairo" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="mohammed@example.com"
+                                android:textColor="@color/text_main"
+                                android:textSize="@dimen/txt_small"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/cairo" />
+                        </LinearLayout>
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin_medium"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="@dimen/margin_large">
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/softGray" android:layout_marginVertical="8dp"/>
 
-                <TextView
-                    android:id="@+id/tvProfileCE"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/cairo"
-                    android:text="CE-2026-X88"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
+                    <!-- Phone Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="8dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_phone"
+                            app:tint="@color/blue" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Téléphone"
+                                android:textColor="@color/hintGray"
+                                android:textSize="@dimen/txt_smallest"
+                                android:fontFamily="@font/cairo" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+212 600 000 000"
+                                android:textColor="@color/text_main"
+                                android:textSize="@dimen/txt_small"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/cairo" />
+                        </LinearLayout>
+                    </LinearLayout>
 
-            </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/softGray" android:layout_marginVertical="8dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin_medium"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="@dimen/margin_large">
+                    <!-- ICE Number Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="8dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_card"
+                            app:tint="@color/blue" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Numéro ICE"
+                                android:textColor="@color/hintGray"
+                                android:textSize="@dimen/txt_smallest"
+                                android:fontFamily="@font/cairo" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ICE-88776655"
+                                android:textColor="@color/text_main"
+                                android:textSize="@dimen/txt_small"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/cairo" />
+                        </LinearLayout>
+                    </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvProfileEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/cairo"
-                    android:text="mohammed.ahmed@email.com"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin_medium"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="@dimen/margin_large">
-
-                <TextView
-                    android:id="@+id/tvProfilePhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/cairo"
-                    android:text="+212 600-000000"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-
-            </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLogout"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:id="@+id/mb_edit_profile"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="@dimen/margin_large"
+                android:layout_height="55dp"
+                android:layout_marginTop="24dp"
+                android:text="Modifier mon profil"
                 android:fontFamily="@font/cairo"
+                app:cornerRadius="@dimen/corner1"
+                app:icon="@android:drawable/ic_menu_edit" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_logout"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="8dp"
                 android:text="Déconnexion"
-                android:textSize="@dimen/txt_small"
-                android:textAllCaps="false"
-                android:textStyle="bold"
                 android:textColor="@color/red"
-                app:iconTint="@color/red"
-                />
+                android:fontFamily="@font/cairo"
+                app:icon="@android:drawable/ic_lock_power_off"
+                app:iconTint="@color/red" />
 
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:background="@color/card_bg"
         app:itemIconSize="24dp"
         app:itemIconTint="@color/blue"
         app:itemTextColor="@color/blue"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_client_bottom"
-        />
-
+        app:menu="@menu/menu_client_bottom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

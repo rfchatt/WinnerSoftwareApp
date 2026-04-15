@@ -4,8 +4,8 @@
         <!-- Define your brand colors here -->
         <item name="colorPrimary">@color/blue</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <!-- This makes the status bar icons dark (for white backgrounds) -->
-        <item name="android:windowLightStatusBar">true</item>
+        <!-- This makes the status bar icons light (for dark backgrounds) -->
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.WinnerSoftwareApp" parent="Base.Theme.WinnerSoftwareApp" />

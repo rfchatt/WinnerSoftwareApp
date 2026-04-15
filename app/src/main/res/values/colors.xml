@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- Colors -->
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Basic Colors -->
+    <color name="pure_black">#FF000000</color>
+    <color name="pure_white">#FFFFFFFF</color>
+    
+    <!-- New Depth Colors -->
+    <color name="blue_light">#E8F0FE</color>
+    <color name="blue_medium">#4A6CF7</color>
+    <color name="surface">#F8F9FF</color>
+    
+    <!-- Semantic Colors (Light Mode) -->
+    <color name="background_main">@color/pure_white</color>
+    <color name="text_main">@color/pure_black</color>
+    <color name="card_bg">@color/pure_white</color>
+    
+    <!-- Original Brand Colors -->
     <color name="primary_blue">#00adf1</color>
     <color name="blue">#293891</color>
-    <color name="softGray">#f1f4ff</color>
+    <color name="softGray">@color/surface</color>
     <color name="red">#ab2229</color>
     <color name="hintGray">#757575</color>
     <color name="orange">#FF4500</color>
@@ -14,4 +25,7 @@
     <color name="gray">#3f3f3f</color>
     <color name="yellow">#ffaa01</color>
 
+    <!-- Legacy mappings -->
+    <color name="black">@color/text_main</color>
+    <color name="white">@color/background_main</color>
 </resources>

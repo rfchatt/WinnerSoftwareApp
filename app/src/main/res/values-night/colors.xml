@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- New Depth Colors (Dark Mode Adjustments) -->
+    <color name="blue_light">#1A213A</color>  <!-- Very dark blue for backgrounds -->
+    <color name="blue_medium">#5C7CFA</color> <!-- Lighter blue for focus in dark mode -->
+    <color name="surface">#1E1E1E</color>     <!-- Dark surface color -->
+
+    <!-- Semantic Colors (Dark Mode) -->
+    <color name="background_main">#FF121212</color>
+    <color name="text_main">#FFFFFFFF</color>
+    <color name="card_bg">#FF252525</color>
+
+    <!-- Brand Colors (Adjusted for Dark Mode) -->
+    <color name="primary_blue">#40C4FF</color>
+    <color name="blue">#82B1FF</color>
+    <color name="softGray">@color/surface</color>
+    <color name="hintGray">#B0B0B0</color>
+    <color name="gray">#E0E0E0</color>
+
+    <!-- Legacy mappings -->
+    <color name="black">@color/text_main</color>
+    <color name="white">@color/background_main</color>
+</resources>

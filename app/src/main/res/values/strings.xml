@@ -14,8 +14,8 @@
     <!-- Client Login -->
     <string name="connectez_vous_ici">Connectez-vous ici</string>
     <string name="bienvenue_a_nouveau">Bienvenue à nouveau, vous nous avez manqué !</string>
-    <string name="numero_ce">Numero de (CE)</string>
-    <string name="entrer_numero_ce">Entrer votre numero CE</string>
+    <string name="numero_ice">Numero de (ICE)</string>
+    <string name="entrer_numero_ice">Entrer votre numero ICE</string>
     <string name="mot_de_passe">Mot de passe</string>
     <string name="entrer_mot_passe">Entrer votre mot de passe</string>
     <string name="mot_passe_oublie">Mot de passe oublié ?</string>

@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/pure_black"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
@@ -23,6 +23,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/ic_services"
             android:scaleType="centerCrop"
+            android:contentDescription="Service Background"
             />
 
         <View
@@ -40,7 +41,7 @@
         android:orientation="vertical"
         android:padding="@dimen/margin_medium"
         android:paddingVertical="@dimen/margin_large"
-        android:background="@color/white"
+        android:background="@color/background_main"
         app:layout_constraintTop_toBottomOf="@id/header_frame"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -48,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:src="@drawable/ic_logo"
+            android:contentDescription="App Logo"
             />
 
         <TextView
@@ -73,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/text_main"
             android:textSize="@dimen/txt_small"
             android:fontFamily="@font/cairo"
             android:text="@string/headline_description"
@@ -95,7 +97,7 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/cairo"
                 android:textSize="@dimen/txt_medium"
-                android:textColor="@color/white"
+                android:textColor="@color/pure_white"
                 android:backgroundTint="@color/blue"
                 android:elevation="8dp"
                 />
@@ -111,7 +113,7 @@
                 android:fontFamily="@font/cairo"
                 android:textSize="@dimen/txt_medium"
                 android:textColor="@color/blue"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/background_main"
                 app:strokeColor="@color/blue"
                 app:strokeWidth="2dp"
                 android:elevation="8dp"
@@ -126,7 +128,7 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/cairo"
                 android:textSize="@dimen/txt_medium"
-                android:textColor="@color/white"
+                android:textColor="@color/pure_white"
                 android:backgroundTint="@color/blue"
                 android:layout_marginBottom="@dimen/margin_small"
                 android:elevation="8dp"
@@ -146,12 +148,16 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_marginHorizontal="@dimen/margin_small"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_lang_ar"
+                        android:contentDescription="Arabic Language"
                         />
 
                     <TextView
@@ -159,7 +165,7 @@
                         android:layout_height="wrap_content"
                         android:text="AR"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_main"
                         android:textSize="@dimen/txt_smallest"
                         android:fontFamily="@font/playfair"
                         />
@@ -172,12 +178,16 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_marginHorizontal="@dimen/margin_small"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_lang_fr"
+                        android:contentDescription="French Language"
                         />
 
                     <TextView
@@ -185,7 +195,7 @@
                         android:layout_height="wrap_content"
                         android:text="FR"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_main"
                         android:textSize="@dimen/txt_smallest"
                         android:fontFamily="@font/playfair"
                         />

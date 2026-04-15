@@ -8,13 +8,19 @@
     <dimen name="txt_large">23sp</dimen>
     <dimen name="txt_largest">30sp</dimen>
 
-    <!--  Corners Radius (1.2)  -->
+    <!--  Corners Radius  -->
+    <dimen name="corner_small">6dp</dimen>
     <dimen name="corner1">12dp</dimen>
     <dimen name="corner2">30dp</dimen>
+    <dimen name="corner_full">100dp</dimen>
 
     <!--  Margines Sizes (s.m.l)  -->
     <dimen name="margin_small">10dp</dimen>
     <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_xlarge">24dp</dimen>
     <dimen name="margin_large">30dp</dimen>
+
+    <!-- Paddiing -->
+    <dimen name="padding_screen">16dp</dimen>
 
 </resources>
