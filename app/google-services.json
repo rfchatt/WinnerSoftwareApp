@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "910928226463",
+    "firebase_url": "https://winnertopsoftware-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "winnertopsoftware",
+    "storage_bucket": "winnertopsoftware.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910928226463:android:17a2f2dc2dd9bdb537daaa",
+        "android_client_info": {
+          "package_name": "com.example.winnersoftwareapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZRtfbskNkkOZXrHXvSlfDNiSbwJ-8-Mc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

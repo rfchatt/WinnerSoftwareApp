@@ -6,20 +6,18 @@ import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.winnersoftwareapp.MainActivity
 import com.example.winnersoftwareapp.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.resources.MaterialAttributes
 
 class clientHome : AppCompatActivity() {
     private lateinit var navView: NavigationView
     private lateinit var drawerLayout: DrawerLayout
-    lateinit var mb_addTicket: MaterialButton
-    lateinit var mb_callTechnician: MaterialButton
+    private lateinit var mb_addTicket: MaterialButton
+    private lateinit var mb_callTechnician: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,28 +27,23 @@ class clientHome : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
         val ivHamburger = findViewById<ImageView>(R.id.iv_hamburger)
-
         val bottom_menu = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         mb_addTicket = findViewById(R.id.mb_addTicket)
         mb_callTechnician = findViewById(R.id.mb_callTechnician)
 
-        mb_addTicket.setOnClickListener {
-            startActivity(Intent(this, clientTicket::class.java))
-        }
-
+        // Menu Hamburger Click
         ivHamburger.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
+        // Navigation Drawer Item Clicks
         navView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_dashboard -> {
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                    true
-                }
                 R.id.nav_logout -> {
-                    finish()
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
                     true
                 }
                 else -> {
@@ -60,27 +53,45 @@ class clientHome : AppCompatActivity() {
             }
         }
 
-
+        // Bottom Navigation Setup
         bottom_menu.selectedItemId = R.id.home
-        bottom_menu.itemIconTintList = null
         bottom_menu.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.profil -> {
-                    startActivity(Intent(this, clientProfil::class.java))
+                    navigateTo(clientProfil::class.java)
                     true
                 }
                 R.id.home -> true
                 R.id.ticket -> {
-                    startActivity(Intent(this, clientTicket::class.java))
+                    navigateTo(clientTicket::class.java)
                     true
                 }
                 else -> false
             }
         }
 
-        mb_callTechnician.setOnClickListener {
-            startActivity(Intent(this, clientDemande::class.java))
+        // Action Buttons
+        mb_addTicket.setOnClickListener {
+            navigateTo(clientTicket::class.java)
         }
 
+        mb_callTechnician.setOnClickListener {
+            navigateTo(clientDemande::class.java)
+        }
+    }
+
+    // Helper function to manage Activity Stack
+    private fun navigateTo(cls: Class<*>) {
+        val intent = Intent(this, cls)
+        intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+        startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 }
