@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/pure_black"
+    android:background="@color/background_main"
     tools:context=".Client.clientLogin">
 
     <FrameLayout
         android:id="@+id/header_frame"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="160dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
-        android:background="@drawable/bg_bottom_sheet_radius"
+        android:layout_marginTop="-30dp"
         app:layout_constraintTop_toBottomOf="@+id/header_frame"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -47,7 +47,7 @@
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="@dimen/margin_large"
-            android:background="@color/background_main">
+            android:background="@drawable/bg_bottom_sheet_radius">
 
             <TextView
                 android:layout_width="match_parent"

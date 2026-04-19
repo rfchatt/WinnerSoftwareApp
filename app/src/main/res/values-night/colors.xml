@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- New Depth Colors (Dark Mode Adjustments) -->
-    <color name="blue_light">#1A213A</color>  <!-- Very dark blue for backgrounds -->
-    <color name="blue_medium">#5C7CFA</color> <!-- Lighter blue for focus in dark mode -->
-    <color name="surface">#1E1E1E</color>     <!-- Dark surface color -->
-
-    <!-- Semantic Colors (Dark Mode) -->
-    <color name="background_main">#FF121212</color>
-    <color name="text_main">#FFFFFFFF</color>
-    <color name="card_bg">#FF252525</color>
-
-    <!-- Brand Colors (Adjusted for Dark Mode) -->
+    <!-- Branding Colors (Stay similar but slightly adjusted for contrast) -->
+    <color name="navy_blue">#3F51B5</color>
+    <color name="blue">#5C6BC0</color>
     <color name="primary_blue">#40C4FF</color>
-    <color name="blue">#82B1FF</color>
-    <color name="softGray">@color/surface</color>
-    <color name="hintGray">#B0B0B0</color>
-    <color name="gray">#E0E0E0</color>
+    
+    <!-- UI Surfaces (Dark) -->
+    <color name="surface_background">#0F172A</color>
+    <color name="surface_card">#1E293B</color>
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
+    
+    <!-- Status Colors -->
+    <color name="red">#F87171</color>
+    <color name="green">#4ADE80</color>
+    <color name="orange">#FB923C</color>
+    <color name="softGray">#334155</color>
+    <color name="hintGray">#64748B</color>
 
-    <!-- Legacy mappings -->
-    <color name="black">@color/text_main</color>
-    <color name="white">@color/background_main</color>
+    <!-- Priority Selectors (Dark Mode) -->
+    <color name="priority_low_selector">#064E3B</color>
+    <color name="priority_medium_selector">#78350F</color>
+    <color name="priority_high_selector">#7F1D1D</color>
 </resources>

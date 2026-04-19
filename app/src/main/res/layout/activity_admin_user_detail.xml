@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_main"
+    android:background="@color/surface_background"
     android:fitsSystemWindows="true"
     tools:context=".Admin.adminClientDetails">
 
@@ -13,11 +13,11 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/blue"
+        android:background="@color/surface_card"
         app:title="Détails du Client"
-        app:titleTextColor="@color/pure_white"
-        app:navigationIcon="@android:drawable/ic_menu_revert"
-        app:navigationIconTint="@color/pure_white"
+        app:titleTextColor="@color/navy_blue"
+        app:navigationIcon="@drawable/ic_back"
+        app:navigationIconTint="@color/navy_blue"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
@@ -36,7 +36,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/corner1"
-                app:cardBackgroundColor="@color/card_bg">
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -48,20 +50,46 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Informations Personnelles"
-                        android:textColor="@color/blue"
+                        android:textColor="@color/navy_blue"
                         android:textStyle="bold"
                         android:fontFamily="@font/cairo" />
 
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/softGray" android:layout_marginVertical="12dp"/>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nom Complet" android:textColor="@color/hintGray" android:textSize="12sp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mohammed Ahmed" android:textColor="@color/text_main" android:textSize="16sp" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nom Complet" android:textColor="@color/text_secondary" android:textSize="12sp" android:fontFamily="@font/cairo"/>
+                    <TextView
+                        android:id="@+id/tv_display_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="..."
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"
+                        android:fontFamily="@font/cairo"/>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="E-mail" android:textColor="@color/hintGray" android:textSize="12sp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="mohammed@example.com" android:textColor="@color/text_main" android:textSize="16sp" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="E-mail" android:textColor="@color/text_secondary" android:textSize="12sp" android:fontFamily="@font/cairo"/>
+                    <TextView
+                        android:id="@+id/tv_display_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="..."
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"
+                        android:fontFamily="@font/cairo"/>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Téléphone" android:textColor="@color/hintGray" android:textSize="12sp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+212 600 000 000" android:textColor="@color/text_main" android:textSize="16sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Téléphone" android:textColor="@color/text_secondary" android:textSize="12sp" android:fontFamily="@font/cairo"/>
+                    <TextView
+                        android:id="@+id/tv_display_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="..."
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/cairo"/>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -71,7 +99,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="Historique des Tickets"
-                android:textColor="@color/text_main"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/cairo" />
 

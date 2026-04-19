@@ -22,21 +22,17 @@
         </activity>
 
         <activity android:name=".Client.clientLogin" android:exported="false"/>
-
         <activity android:name=".Client.clientRegister" android:exported="false"/>
-
         <activity android:name=".Client.clientHome" android:exported="false"/>
-
         <activity android:name=".Client.clientTicket" android:exported="false"/>
-
         <activity android:name=".Client.clientDemande" android:exported="false"/>
-
         <activity android:name=".Client.clientProfil" android:exported="false"/>
+        
+        <!-- إضافة الصفحة الجديدة هنا -->
+        <activity android:name=".Client.CreateTicketActivity" android:exported="false"/>
 
         <activity android:name=".Admin.adminLogin" android:exported="false"/>
-
         <activity android:name=".Admin.adminHome" android:exported="false"/>
-
         <activity android:name=".Admin.adminClientDetails" android:exported="false"/>
 
     </application>

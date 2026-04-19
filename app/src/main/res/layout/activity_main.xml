@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pure_black"
+    android:background="@color/background_main"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
@@ -37,32 +37,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="@dimen/margin_medium"
-        android:paddingVertical="@dimen/margin_large"
         android:background="@color/background_main"
         app:layout_constraintTop_toBottomOf="@id/header_frame"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="70dp"
             android:src="@drawable/ic_logo"
             android:contentDescription="App Logo"
+            android:layout_marginTop="16dp"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/blue"
-            android:textSize="@dimen/txt_largest"
+            android:textColor="@color/navy_blue"
+            android:textSize="28sp"
             android:fontFamily="@font/playfair"
             android:textStyle="bold"
-            android:paddingHorizontal="@dimen/margin_small"
-            android:layout_marginBottom="@dimen/margin_large"
+            android:layout_marginTop="8dp"
             android:text="@string/headline"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/txt_small"
+            android:fontFamily="@font/cairo"
+            android:text="@string/headline_description"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="24dp"
             />
 
         <View
@@ -71,138 +82,101 @@
             android:layout_weight="1"
             />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/text_main"
-            android:textSize="@dimen/txt_small"
-            android:fontFamily="@font/cairo"
-            android:text="@string/headline_description"
-            android:layout_marginVertical="@dimen/margin_medium"
-            />
-
+        <!-- Action Buttons Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:gravity="center"
-            android:orientation="vertical">
+            android:paddingBottom="16dp">
 
+            <!-- Primary Action: Connecter -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mb_login"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:cornerRadius="@dimen/corner1"
+                android:layout_height="64dp"
                 android:text="@string/connecter"
                 android:textStyle="bold"
                 android:fontFamily="@font/cairo"
-                android:textSize="@dimen/txt_medium"
-                android:textColor="@color/pure_white"
-                android:backgroundTint="@color/blue"
-                android:elevation="8dp"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/navy_blue"
+                app:cornerRadius="16dp"
+                app:elevation="4dp"
                 />
 
+            <!-- Secondary Action: Registre -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mb_register"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:minWidth="150dp"
-                app:cornerRadius="@dimen/corner1"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
                 android:text="@string/registre"
-                android:textStyle="bold"
                 android:fontFamily="@font/cairo"
-                android:textSize="@dimen/txt_medium"
-                android:textColor="@color/blue"
-                android:backgroundTint="@color/background_main"
-                app:strokeColor="@color/blue"
-                app:strokeWidth="2dp"
-                android:elevation="8dp"
+                android:textSize="16sp"
+                android:textColor="@color/navy_blue"
+                app:strokeColor="@color/navy_blue"
+                app:strokeWidth="1.5dp"
+                app:cornerRadius="16dp"
                 />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/mb_espace_entreprise"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:cornerRadius="@dimen/corner1"
-                android:text="@string/espace_entreprise"
-                android:textStyle="bold"
-                android:fontFamily="@font/cairo"
-                android:textSize="@dimen/txt_medium"
-                android:textColor="@color/pure_white"
-                android:backgroundTint="@color/blue"
-                android:layout_marginBottom="@dimen/margin_small"
-                android:elevation="8dp"
-                />
-
+            <!-- Language Switcher -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/margin_medium"
-                android:paddingHorizontal="@dimen/margin_large"
+                android:layout_marginTop="24dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <LinearLayout
+                <TextView
                     android:id="@+id/ln_arLanguage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginHorizontal="@dimen/margin_small"
-                    android:orientation="vertical"
+                    android:text="العربية"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/cairo"
+                    android:padding="8dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:background="?attr/selectableItemBackground">
+                    android:background="?attr/selectableItemBackground" />
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_lang_ar"
-                        android:contentDescription="Arabic Language"
-                        />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="16dp"
+                    android:background="@color/hintGray"
+                    android:layout_marginHorizontal="8dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="AR"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_main"
-                        android:textSize="@dimen/txt_smallest"
-                        android:fontFamily="@font/playfair"
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
                     android:id="@+id/ln_frLanguage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginHorizontal="@dimen/margin_small"
-                    android:orientation="vertical"
+                    android:text="Français"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/cairo"
+                    android:padding="8dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:background="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_lang_fr"
-                        android:contentDescription="French Language"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="FR"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_main"
-                        android:textSize="@dimen/txt_smallest"
-                        android:fontFamily="@font/playfair"
-                        />
-
-                </LinearLayout>
+                    android:background="?attr/selectableItemBackground" />
 
             </LinearLayout>
+
+            <!-- Admin Access: Small and discrete -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_espace_entreprise"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/espace_entreprise"
+                android:textAllCaps="false"
+                android:fontFamily="@font/cairo"
+                android:textSize="12sp"
+                android:textColor="@color/hintGray"
+                app:rippleColor="@color/softGray"
+                />
 
         </LinearLayout>
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Top Software</string>
+    <string name="app_name">Winner Software</string>
 
     <!-- Main -->
     <string name="headline">Nous réparons ce que vous achetez !</string>
@@ -23,9 +22,21 @@
 
     <!-- Client Register -->
     <string name="creer_compte">Créer un compte</string>
-    <string name="creer_compte_description">Créez un compte pour découvrir tous nos services après-vente !</string>
+    <string name="creer_compte_description">Crئةز un compte pour découvrir tous nos services après-vente !</string>
     <string name="confirmation_mot_passe">Confirmation de mot de passe</string>
     <string name="confirmer_mot_passe">Confirmer votre mot de passe</string>
     <string name="jai_deja_compte">J\'ai déjà un compte</string>
 
+    <!-- Ticket Support -->
+    <string name="creer_ticket">Créer un nouveau ticket</string>
+    <string name="details_probleme">Détails du Problème</string>
+    <string name="titre_probleme">Titre du problème</string>
+    <string name="description_probleme">Description détaillée</string>
+    <string name="type_service">Type de Service</string>
+    <string name="piece_jointe">Pièce jointe (Image)</string>
+    <string name="ajouter_photo">Ajouter une photo</string>
+    <string name="envoyer_demande">Envoyer la demande</string>
+    <string name="appel_urgence">Appel d\'urgence</string>
+    <string name="software">Logiciel (Software)</string>
+    <string name="hardware">Matériel (Hardware)</string>
 </resources>

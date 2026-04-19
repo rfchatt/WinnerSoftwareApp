@@ -23,7 +23,6 @@ class clientRegister : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
-        // Correct IDs from activity_client_register.xml
         val btnRegister = findViewById<MaterialButton>(R.id.mb_register)
         val etName = findViewById<TextInputEditText>(R.id.et_client_name)
         val etICE = findViewById<TextInputEditText>(R.id.et_client_ce_number)
@@ -66,22 +65,20 @@ class clientRegister : AppCompatActivity() {
                             "ice" to ice,
                             "phone" to phone,
                             "email" to email,
-                            "role" to "client"
+                            "role" to "client",
+                            "status" to "pending" // الحالة الافتراضية: قيد الانتظار
                         )
                         
                         userId?.let {
                             database.reference.child("users").child(it).setValue(userMap)
                                 .addOnSuccessListener {
-                                    Toast.makeText(this, "Compte créé avec succès !", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, "Compte créé ! En attente de validation par l'entreprise.", Toast.LENGTH_LONG).show()
                                     startActivity(Intent(this, clientLogin::class.java))
                                     finish()
                                 }
-                                .addOnFailureListener { e ->
-                                    Toast.makeText(this, "Erreur Database: ${e.message}", Toast.LENGTH_LONG).show()
-                                }
                         }
                     } else {
-                        Toast.makeText(this, "Erreur Auth: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Erreur: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                     }
                 }
         }
