@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Admin.adminHome">
+    tools:context=".views.admin.adminHome">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,34 +26,37 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_logo"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/img_logo"
                 android:scaleType="fitStart"
-                android:contentDescription="Winner Logo" />
+                />
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:layout_weight="1"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="@dimen/margin_medium"
                 android:text="Admin Panel"
                 android:textColor="@color/navy_blue"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/playfair" />
+                android:fontFamily="@font/playfair"
+                />
 
             <ImageView
                 android:id="@+id/iv_hamburger"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_hamburger"
+                android:src="@drawable/img_hamburger"
                 android:padding="8dp"
                 android:contentDescription="Menu"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:tint="@color/navy_blue" />
+                app:tint="@color/navy_blue"
+                />
 
         </LinearLayout>
 
@@ -67,16 +70,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="@dimen/margin_medium">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Statistiques Globales"
                     android:textColor="@color/text_primary"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/txt_medium"
                     android:textStyle="bold"
-                    android:fontFamily="@font/cairo" />
+                    android:fontFamily="@font/cairo"
+                    />
 
                 <GridLayout
                     android:layout_width="match_parent"
@@ -90,9 +94,10 @@
                         android:layout_height="wrap_content"
                         android:minHeight="100dp"
                         android:layout_columnWeight="1"
-                        android:layout_marginEnd="8dp"
-                        app:cardCornerRadius="16dp"
+                        app:cardCornerRadius="@dimen/corner1"
+                        android:layout_marginEnd="2dp"
                         app:cardBackgroundColor="@color/navy_blue">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -100,21 +105,30 @@
                             android:gravity="center"
                             android:padding="12dp"
                             android:orientation="vertical">
+
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="24"
+                                android:gravity="center"
+                                android:text="--"
+                                android:fontFamily="@font/cairo"
                                 android:textColor="@color/white"
                                 android:textSize="26sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                />
+
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="center"
                                 android:text="Tickets Ouverts"
                                 android:textColor="@color/white"
                                 android:textSize="12sp"
-                                android:fontFamily="@font/cairo" />
+                                android:fontFamily="@font/cairo"
+                                />
+
                         </LinearLayout>
+
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -122,31 +136,41 @@
                         android:layout_height="wrap_content"
                         android:minHeight="100dp"
                         android:layout_columnWeight="1"
-                        android:layout_marginStart="8dp"
-                        app:cardCornerRadius="16dp"
-                        app:cardBackgroundColor="@color/green">
+                        android:layout_marginStart="2dp"
+                        app:cardCornerRadius="@dimen/corner1"
+                        app:cardBackgroundColor="@color/primary_blue">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:minHeight="100dp"
                             android:gravity="center"
-                            android:padding="12dp"
+                            android:padding="@dimen/margin_medium"
                             android:orientation="vertical">
+
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="152"
-                                android:textColor="@color/white"
-                                android:textSize="26sp"
-                                android:textStyle="bold" />
+                                android:gravity="center"
+                                android:text="--"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/cairo"
+                                android:textSize="@dimen/txt_large"
+                                android:textStyle="bold"
+                                />
+
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="center"
                                 android:text="Clients Totaux"
-                                android:textColor="@color/white"
-                                android:textSize="12sp"
-                                android:fontFamily="@font/cairo" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/cairo"
+                                android:textSize="@dimen/txt_small"
+                                />
+
                         </LinearLayout>
+
                     </com.google.android.material.card.MaterialCardView>
 
                 </GridLayout>
@@ -154,17 +178,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="@dimen/margin_medium"
                     android:text="Dernières Demandes"
                     android:textColor="@color/text_primary"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/txt_medium"
                     android:fontFamily="@font/cairo"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    />
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="@dimen/margin_medium"
                     android:minHeight="100dp">
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -173,7 +198,8 @@
                         android:layout_height="wrap_content"
                         android:visibility="gone"
                         tools:listitem="@layout/item_admin_demande"
-                        tools:itemCount="3"/>
+                        tools:itemCount="3"
+                        />
 
                     <ProgressBar
                         android:id="@+id/pb_admin_loading"
@@ -181,7 +207,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:indeterminateTint="@color/navy_blue"
-                        android:visibility="visible" />
+                        android:visibility="visible"
+                        />
 
                     <TextView
                         android:id="@+id/tv_admin_empty_demandes"
@@ -190,13 +217,15 @@
                         android:layout_gravity="center"
                         android:text="Aucune demande récente"
                         android:textColor="@color/hintGray"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/txt_small"
                         android:fontFamily="@font/cairo"
-                        android:visibility="gone" />
+                        android:visibility="gone"
+                        />
 
                 </FrameLayout>
 
             </LinearLayout>
+
         </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -209,7 +238,7 @@
             app:itemTextColor="@color/navy_blue"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/menu_admin_bottom"
+            app:menu="@menu/bottom_menu_admin"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

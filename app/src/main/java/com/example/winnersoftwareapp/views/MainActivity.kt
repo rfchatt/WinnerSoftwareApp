@@ -1,4 +1,4 @@
-package com.example.winnersoftwareapp
+package com.example.winnersoftwareapp.views
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,11 +6,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
-import com.example.winnersoftwareapp.Client.clientLogin
-import com.example.winnersoftwareapp.Client.clientRegister
-import com.example.winnersoftwareapp.Admin.adminLogin
-import com.example.winnersoftwareapp.Admin.adminHome
-import com.example.winnersoftwareapp.Client.clientHome
+import com.example.winnersoftwareapp.R
+import com.example.winnersoftwareapp.views.admin.adminHome
+import com.example.winnersoftwareapp.views.admin.adminLogin
+import com.example.winnersoftwareapp.views.client.clientHome
+import com.example.winnersoftwareapp.views.client.clientLogin
+import com.example.winnersoftwareapp.views.client.clientRegister
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
@@ -51,8 +52,19 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, adminLogin::class.java))
         }
 
-        tv_arLanguage.setOnClickListener { setLocale("ar") }
-        tv_frLanguage.setOnClickListener { setLocale("fr") }
+        tv_arLanguage.setOnClickListener {
+            setLocale("ar")
+        }
+
+        tv_frLanguage.setOnClickListener {
+            setLocale("fr")
+        }
+
+    }
+
+    private fun setLocale(languageCode: String) {
+        val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags(languageCode)
+        AppCompatDelegate.setApplicationLocales(appLocale)
     }
 
     private fun checkUserPersistence(userId: String) {
@@ -60,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             if (snapshot.exists()) {
                 val role = snapshot.child("role").value.toString()
                 val nextActivity = if (role == "admin") adminHome::class.java else clientHome::class.java
-                
+
                 val intent = Intent(this, nextActivity)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
@@ -69,8 +81,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setLocale(languageCode: String) {
-        val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags(languageCode)
-        AppCompatDelegate.setApplicationLocales(appLocale)
-    }
 }

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/pure_black"
-    tools:context=".Client.clientRegister">
+    tools:context=".views.client.clientRegister">
 
     <FrameLayout
         android:id="@+id/header_frame"
@@ -20,7 +20,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_services"
+            android:src="@drawable/img_services"
             android:scaleType="centerCrop"
             android:contentDescription="Header Background"
             />

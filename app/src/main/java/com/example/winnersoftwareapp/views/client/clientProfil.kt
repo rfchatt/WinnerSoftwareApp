@@ -1,4 +1,4 @@
-package com.example.winnersoftwareapp.Client
+package com.example.winnersoftwareapp.views.client
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,13 +9,17 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.winnersoftwareapp.MainActivity
+import androidx.core.content.ContextCompat
+import com.example.winnersoftwareapp.views.MainActivity
 import com.example.winnersoftwareapp.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class clientProfil : AppCompatActivity() {
 
@@ -27,7 +31,6 @@ class clientProfil : AppCompatActivity() {
     private lateinit var tvDisplayPhone: TextView
     private lateinit var tvDisplayIce: TextView
     private lateinit var tvAccountStatus: TextView
-    private lateinit var cvStatusBadge: MaterialCardView
     private lateinit var mbEditProfile: MaterialButton
     private lateinit var mbLogout: MaterialButton
 
@@ -57,50 +60,53 @@ class clientProfil : AppCompatActivity() {
         tvDisplayPhone = findViewById(R.id.tv_display_phone)
         tvDisplayIce = findViewById(R.id.tv_display_ice)
         tvAccountStatus = findViewById(R.id.tv_account_status)
-        cvStatusBadge = findViewById(R.id.cv_status_badge)
         mbEditProfile = findViewById(R.id.mb_edit_profile)
         mbLogout = findViewById(R.id.mb_logout)
     }
 
     private fun loadUserData() {
         val userId = auth.currentUser?.uid ?: return
-        database.reference.child("users").child(userId).get().addOnSuccessListener { snapshot ->
-            if (snapshot.exists()) {
-                val name = snapshot.child("name").value.toString()
-                val email = snapshot.child("email").value.toString()
-                val phone = snapshot.child("phone").value.toString()
-                val ice = snapshot.child("ice").value.toString()
-                val status = snapshot.child("status").value?.toString() ?: "pending"
+        database.reference.child("users").child(userId).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    val name = snapshot.child("name").value?.toString() ?: ""
+                    val email = snapshot.child("email").value?.toString() ?: ""
+                    val phone = snapshot.child("phone").value?.toString() ?: ""
+                    val ice = snapshot.child("ice").value?.toString() ?: ""
+                    val status = snapshot.child("status").value?.toString() ?: "pending"
 
-                tvProfileName.text = name
-                tvDisplayEmail.text = email
-                tvDisplayPhone.text = phone
-                tvDisplayIce.text = ice
-                
-                updateStatusUI(status)
+                    tvProfileName.text = name
+                    tvDisplayEmail.text = email
+                    tvDisplayPhone.text = phone
+                    tvDisplayIce.text = ice
+                    
+                    updateStatusUI(status)
+                }
             }
-        }.addOnFailureListener {
-            Toast.makeText(this, "Erreur de chargement", Toast.LENGTH_SHORT).show()
-        }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle possible errors
+            }
+        })
     }
 
     private fun updateStatusUI(status: String) {
         when (status) {
             "approved" -> {
                 tvAccountStatus.text = "Compte Validé"
-                cvStatusBadge.setCardBackgroundColor(Color.parseColor("#2E7D32")) // Green
+                tvAccountStatus.setTextColor(Color.parseColor("#2E7D32")) // Green
             }
             "pending" -> {
-                tvAccountStatus.text = "En attente de validation"
-                cvStatusBadge.setCardBackgroundColor(Color.parseColor("#F59E0B")) // Orange
+                tvAccountStatus.text = "Compte non Validé"
+                tvAccountStatus.setTextColor(Color.GRAY) // Gray
             }
             "rejected" -> {
                 tvAccountStatus.text = "Compte Refusé"
-                cvStatusBadge.setCardBackgroundColor(Color.parseColor("#D32F2F")) // Red
+                tvAccountStatus.setTextColor(Color.parseColor("#ab2229")) // Red
             }
             else -> {
                 tvAccountStatus.text = "Statut Inconnu"
-                cvStatusBadge.setCardBackgroundColor(Color.GRAY)
+                tvAccountStatus.setTextColor(Color.GRAY) // Gray
             }
         }
     }
@@ -136,8 +142,6 @@ class clientProfil : AppCompatActivity() {
                     "phone" to newPhone
                 )
                 database.reference.child("users").child(userId).updateChildren(updates).addOnSuccessListener {
-                    tvProfileName.text = newName
-                    tvDisplayPhone.text = newPhone
                     Toast.makeText(this, "Profil mis à jour !", Toast.LENGTH_SHORT).show()
                 }
             }

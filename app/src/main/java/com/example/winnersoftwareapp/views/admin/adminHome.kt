@@ -1,4 +1,4 @@
-package com.example.winnersoftwareapp.Admin
+package com.example.winnersoftwareapp.views.admin
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,9 +11,9 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.winnersoftwareapp.Client.CreateTicketActivity
-import com.example.winnersoftwareapp.MainActivity
+import com.example.winnersoftwareapp.views.MainActivity
 import com.example.winnersoftwareapp.R
+import com.example.winnersoftwareapp.models.User
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -28,7 +28,7 @@ class adminHome : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var tvEmpty: TextView
     private lateinit var adapter: AdminUserAdapter
-    private val pendingUsers = mutableListOf<UserFB>()
+    private val pendingUsers = mutableListOf<User>()
 
     private lateinit var database: DatabaseReference
 
@@ -70,7 +70,7 @@ class adminHome : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     pendingUsers.clear()
                     for (userSnapshot in snapshot.children) {
-                        val user = userSnapshot.getValue(UserFB::class.java)
+                        val user = userSnapshot.getValue(User::class.java)
                         if (user != null) pendingUsers.add(user)
                     }
                     

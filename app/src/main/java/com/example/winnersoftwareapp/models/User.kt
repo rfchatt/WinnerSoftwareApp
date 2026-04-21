@@ -1,9 +1,9 @@
-package com.example.winnersoftwareapp.Admin
+package com.example.winnersoftwareapp.models
 
 import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
-data class UserFB(
+data class User(
     val uid: String? = null,
     val name: String? = null,
     val email: String? = null,

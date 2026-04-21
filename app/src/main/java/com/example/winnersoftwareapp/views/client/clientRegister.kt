@@ -1,4 +1,4 @@
-package com.example.winnersoftwareapp.Client
+package com.example.winnersoftwareapp.views.client
 
 import android.content.Intent
 import android.os.Bundle

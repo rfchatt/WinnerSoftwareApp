@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Client.clientProfil">
+    tools:context=".views.client.clientProfil">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:id="@+id/profile_header"
             android:layout_width="match_parent"
             android:layout_height="260dp"
-            android:background="@color/navy_blue"
+            android:background="@drawable/bg_style_top_blue"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent">
@@ -27,45 +27,22 @@
                 android:id="@+id/iv_profile_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:padding="2dp"
                 android:src="@drawable/ic_user"
-                android:background="@color/white"
                 android:scaleType="centerCrop"
                 app:shapeAppearanceOverlay="@style/CircleImageView"
-                app:strokeColor="@color/white"
-                app:strokeWidth="3dp" />
+                />
 
             <TextView
                 android:id="@+id/tv_profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/margin_small"
                 android:text="Chargement..."
                 android:textColor="@color/white"
-                android:textSize="22sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/cairo" />
-
-            <!-- عرض حالة الحساب -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cv_status_badge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="#44FFFFFF">
-                <TextView
-                    android:id="@+id/tv_account_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="12dp"
-                    android:paddingVertical="4dp"
-                    android:text="Vérification..."
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/cairo" />
-            </com.google.android.material.card.MaterialCardView>
+                android:textSize="@dimen/txt_medium"
+                android:fontFamily="@font/cairo"
+                />
 
         </LinearLayout>
 
@@ -79,14 +56,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="@dimen/margin_medium">
+
+                <!-- عرض حالة الحساب -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_status_badge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/corner2"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/surface_card"
+                    app:cardBackgroundColor="@color/surface_card">
+
+                    <TextView
+                        android:id="@+id/tv_account_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/margin_small"
+                        android:text="Non vérifier"
+                        android:gravity="center"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/txt_small"
+                        android:fontFamily="@font/cairo"
+                        />
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Information Card -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="24dp"
+                    app:cardCornerRadius="@dimen/corner2"
                     app:cardElevation="2dp"
+                    android:layout_marginTop="@dimen/margin_small"
                     app:cardBackgroundColor="@color/surface_card"
                     app:strokeWidth="0dp">
 
@@ -94,141 +96,188 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="20dp">
+                        android:padding="@dimen/margin_medium">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:paddingVertical="12dp">
+                            android:paddingVertical="@dimen/margin_medium">
+
                             <ImageView
                                 android:layout_width="24dp"
-                                android:layout_height="24dp"
+                                android:layout_height="match_parent"
                                 android:src="@drawable/ic_email"
-                                app:tint="@color/navy_blue" />
+                                app:tint="@color/navy_blue"
+                                />
+
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="16dp"
                                 android:orientation="vertical">
+
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Adresse e-mail"
+                                    android:fontFamily="@font/playfair"
                                     android:textColor="@color/text_secondary"
-                                    android:textSize="12sp" />
+                                    android:textSize="12sp"
+                                    />
+
                                 <TextView
                                     android:id="@+id/tv_display_email"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="..."
+                                    android:fontFamily="@font/cairo"
                                     android:textColor="@color/text_primary"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="@dimen/txt_small"
+                                    />
+
                             </LinearLayout>
+
                         </LinearLayout>
 
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/softGray" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/softGray"
+                            />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:paddingVertical="12dp">
+                            android:paddingVertical="@dimen/margin_medium">
+
                             <ImageView
                                 android:layout_width="24dp"
-                                android:layout_height="24dp"
+                                android:layout_height="match_parent"
                                 android:src="@drawable/ic_phone"
-                                app:tint="@color/navy_blue" />
+                                app:tint="@color/navy_blue"
+                                />
+
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="16dp"
                                 android:orientation="vertical">
+
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Téléphone"
+                                    android:fontFamily="@font/playfair"
                                     android:textColor="@color/text_secondary"
-                                    android:textSize="12sp" />
+                                    android:textSize="12sp"
+                                    />
+
                                 <TextView
                                     android:id="@+id/tv_display_phone"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="..."
+                                    android:fontFamily="@font/cairo"
                                     android:textColor="@color/text_primary"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="@dimen/txt_small"
+                                    />
+
                             </LinearLayout>
+
                         </LinearLayout>
 
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/softGray" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/softGray"
+                            />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:paddingVertical="12dp">
+                            android:paddingVertical="@dimen/margin_medium">
+
                             <ImageView
                                 android:layout_width="24dp"
-                                android:layout_height="24dp"
+                                android:layout_height="match_parent"
                                 android:src="@drawable/ic_card"
-                                app:tint="@color/navy_blue" />
+                                app:tint="@color/navy_blue"
+                                />
+
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="16dp"
                                 android:orientation="vertical">
+
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Numéro ICE"
+                                    android:fontFamily="@font/playfair"
                                     android:textColor="@color/text_secondary"
-                                    android:textSize="12sp" />
+                                    android:textSize="12sp"
+                                    />
+
                                 <TextView
                                     android:id="@+id/tv_display_ice"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="..."
+                                    android:fontFamily="@font/cairo"
                                     android:textColor="@color/text_primary"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="@dimen/txt_small"
+                                    />
+
                             </LinearLayout>
+
                         </LinearLayout>
 
                     </LinearLayout>
+
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/mb_edit_profile"
                     style="@style/Widget.Material3.Button.TonalButton"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="@dimen/margin_medium"
                     android:text="Modifier mon profil"
                     android:textColor="@color/navy_blue"
-                    app:cornerRadius="14dp"
+                    android:fontFamily="@font/cairo"
+                    app:cornerRadius="@dimen/corner1"
                     app:icon="@drawable/ic_edit"
-                    app:iconTint="@color/navy_blue" />
+                    android:backgroundTint="@color/surface_card"
+                    app:iconTint="@color/navy_blue"
+                    />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/mb_logout"
                     style="@style/Widget.Material3.Button.TextButton"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="60dp"
+                    android:backgroundTint="@color/surface_card"
+                    android:layout_marginTop="5dp"
                     android:text="Déconnexion"
+                    android:fontFamily="@font/cairo"
                     android:textColor="@color/red"
+                    app:cornerRadius="@dimen/corner1"
                     app:icon="@drawable/ic_logout"
-                    app:iconTint="@color/red" />
+                    app:iconTint="@color/red"
+                    />
 
             </LinearLayout>
+
         </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -241,7 +290,8 @@
             app:itemTextColor="@color/navy_blue"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/menu_client_bottom" />
+            app:menu="@menu/bottom_menu_client"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

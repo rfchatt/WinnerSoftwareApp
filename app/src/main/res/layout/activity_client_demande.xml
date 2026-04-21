@@ -29,7 +29,7 @@
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
                     android:padding="12dp"
-                    android:src="@drawable/ic_back"
+                    android:src="@drawable/img_back"
                     android:contentDescription="Retour" />
 
                 <TextView
@@ -135,10 +135,11 @@
                         />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:text="DESCRIPTION DU PROBLÈME"
@@ -160,7 +161,7 @@
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:text="ACTIONS DISPONIBLES"
@@ -182,7 +183,7 @@
                 android:fontFamily="@font/cairo"
                 android:backgroundTint="@color/blue"
                 app:cornerRadius="@dimen/corner1"
-                app:icon="@drawable/ic_capture"
+                app:icon="@drawable/img_capture"
                 />
 
             <com.google.android.material.button.MaterialButton
@@ -196,7 +197,7 @@
                 android:textColor="@color/red"
                 android:fontFamily="@font/cairo"
                 app:cornerRadius="@dimen/corner1"
-                app:icon="@drawable/ic_capture"
+                app:icon="@drawable/img_capture"
                 app:iconTint="@color/red"
                 app:strokeColor="@color/red"
                 />

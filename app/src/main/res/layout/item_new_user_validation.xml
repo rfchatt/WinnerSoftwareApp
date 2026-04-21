@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
-    app:cardCornerRadius="16dp"
+    android:layout_marginHorizontal="@dimen/margin_small"
+    android:layout_marginVertical="@dimen/margin_small"
+    app:cardCornerRadius="@dimen/corner1"
     app:cardElevation="2dp"
     app:strokeWidth="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="@dimen/margin_medium">
 
         <TextView
             android:id="@+id/tv_user_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/cairo"
-            android:text="Nom du Client"
+            android:text="--"
             android:textColor="@color/navy_blue"
-            android:textSize="18sp"
+            android:textSize="@dimen/txt_medium"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/iv_info"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <TextView
             android:id="@+id/tv_user_ice"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/cairo"
             android:text="ICE: 12345678"
@@ -66,31 +68,50 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@android:color/transparent"
                 android:text="Refuser"
+                android:layout_marginEnd="2dp"
+                android:fontFamily="@font/cairo"
                 android:textColor="@color/red"
-                android:textSize="11sp" />
+                app:cornerRadius="@dimen/corner1"
+                app:strokeColor="@color/red"
+                app:strokeWidth="1dp"
+                android:textSize="@dimen/txt_smallest"
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_approve"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/green"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:backgroundTint="@android:color/transparent"
+                app:strokeColor="@color/green"
+                app:strokeWidth="1dp"
                 android:text="Approuver"
-                android:textColor="@color/white"
-                android:textSize="11sp" />
+                android:fontFamily="@font/cairo"
+                android:textColor="@color/green"
+                app:cornerRadius="@dimen/corner1"
+                android:textSize="@dimen/txt_smallest"
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_make_admin"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="2dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/cairo"
-                android:text="Rendre Admin"
+                android:text="Admin"
+                android:backgroundTint="@android:color/transparent"
+                app:strokeColor="@color/navy_blue"
+                app:strokeWidth="1dp"
+                app:cornerRadius="@dimen/corner1"
                 android:textColor="@color/navy_blue"
-                android:textSize="10sp" />
+                android:textSize="@dimen/txt_smallest"
+                />
 
         </LinearLayout>
 

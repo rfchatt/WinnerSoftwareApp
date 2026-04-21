@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_main"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
     <FrameLayout
         android:id="@+id/header_frame"
@@ -21,7 +21,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_services"
+            android:src="@drawable/img_services"
             android:scaleType="centerCrop"
             android:contentDescription="Service Background"
             />
@@ -47,7 +47,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:src="@drawable/ic_logo"
+            android:src="@drawable/img_logo"
             android:contentDescription="App Logo"
             android:layout_marginTop="16dp"
             />
@@ -123,9 +123,9 @@
 
             <!-- Language Switcher -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -135,18 +135,20 @@
                     android:layout_height="wrap_content"
                     android:text="العربية"
                     android:textColor="@color/text_secondary"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/txt_small"
                     android:fontFamily="@font/cairo"
-                    android:padding="8dp"
+                    android:padding="@dimen/margin_small"
                     android:clickable="true"
                     android:focusable="true"
-                    android:background="?attr/selectableItemBackground" />
+                    android:background="?attr/selectableItemBackground"
+                    />
 
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="16dp"
+                    android:layout_height="@dimen/margin_medium"
                     android:background="@color/hintGray"
-                    android:layout_marginHorizontal="8dp" />
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    />
 
                 <TextView
                     android:id="@+id/ln_frLanguage"
@@ -154,26 +156,27 @@
                     android:layout_height="wrap_content"
                     android:text="Français"
                     android:textColor="@color/text_secondary"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/txt_small"
                     android:fontFamily="@font/cairo"
-                    android:padding="8dp"
+                    android:padding="@dimen/margin_small"
                     android:clickable="true"
                     android:focusable="true"
-                    android:background="?attr/selectableItemBackground" />
+                    android:background="?attr/selectableItemBackground"
+                    />
 
             </LinearLayout>
 
-            <!-- Admin Access: Small and discrete -->
+            <!-- Admin Access -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mb_espace_entreprise"
                 style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:text="@string/espace_entreprise"
                 android:textAllCaps="false"
                 android:fontFamily="@font/cairo"
-                android:textSize="12sp"
+                android:textSize="@dimen/txt_small"
                 android:textColor="@color/hintGray"
                 app:rippleColor="@color/softGray"
                 />

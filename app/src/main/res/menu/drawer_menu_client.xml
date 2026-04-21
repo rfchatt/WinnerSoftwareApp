@@ -5,13 +5,13 @@
 
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/img_home"
             android:title="Accueil"
             />
 
         <item
             android:id="@+id/nav_my_demandes"
-            android:icon="@drawable/ic_ticket"
+            android:icon="@drawable/img_ticket"
             android:title="Mes Demandes"
             />
 
@@ -29,12 +29,12 @@
 
             <item
                 android:id="@+id/nav_support"
-                android:icon="@drawable/ic_support"
+                android:icon="@drawable/img_support"
                 android:title="Aide &amp; Support"
                 />
             <item
                 android:id="@+id/nav_logout"
-                android:icon="@drawable/ic_back"
+                android:icon="@drawable/img_back"
                 android:title="Déconnexion"
                 />
         </menu>

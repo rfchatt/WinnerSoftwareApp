@@ -1,4 +1,4 @@
-package com.example.winnersoftwareapp.Admin
+package com.example.winnersoftwareapp.views.admin
 
 import android.content.Intent
 import android.os.Bundle

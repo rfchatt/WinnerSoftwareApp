@@ -14,14 +14,14 @@
         android:id="@+id/home"
         app:showAsAction="always"
         android:title="Tableau de Bord"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/img_home"
         />
 
     <item
         android:id="@+id/ticket"
         app:showAsAction="always"
         android:title="Ticket"
-        android:icon="@drawable/ic_ticket"
+        android:icon="@drawable/img_ticket"
         />
 
 

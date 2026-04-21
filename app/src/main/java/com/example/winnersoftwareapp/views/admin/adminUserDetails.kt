@@ -1,14 +1,16 @@
-package com.example.winnersoftwareapp.Admin
+package com.example.winnersoftwareapp.views.admin
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.winnersoftwareapp.R
 import com.google.firebase.database.*
 
-class adminClientDetails : AppCompatActivity() {
+class adminUserDetails : AppCompatActivity() {
 
+    lateinit var btn_back_nav: ImageView
     private lateinit var tvName: TextView
     private lateinit var tvEmail: TextView
     private lateinit var tvPhone: TextView
@@ -18,17 +20,20 @@ class adminClientDetails : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin_user_detail)
+        setContentView(R.layout.activity_admin_client_detail)
 
         userId = intent.getStringExtra("userId")
         database = FirebaseDatabase.getInstance().reference
 
         initViews()
         loadClientInfo()
-        
-        findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar).setNavigationOnClickListener {
-            onBackPressed()
+
+        btn_back_nav = findViewById(R.id.btn_back_nav)
+        btn_back_nav.setOnClickListener {
+            finish()
         }
+
+
     }
 
     private fun initViews() {
@@ -54,4 +59,5 @@ class adminClientDetails : AppCompatActivity() {
             }
         }
     }
+
 }

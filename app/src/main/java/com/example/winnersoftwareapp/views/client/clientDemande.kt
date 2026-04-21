@@ -1,13 +1,9 @@
-package com.example.winnersoftwareapp.Client
+package com.example.winnersoftwareapp.views.client
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.winnersoftwareapp.R
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class clientDemande : AppCompatActivity() {
 

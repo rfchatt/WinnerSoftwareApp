@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Client.clientHome">
+    tools:context=".views.client.clientHome">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,47 +21,42 @@
             android:layout_height="70dp"
             android:gravity="center_vertical"
             android:background="@color/surface_card"
-            android:paddingHorizontal="16dp"
+            android:paddingHorizontal="@dimen/margin_small"
             android:elevation="4dp"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.card.MaterialCardView
+            <ImageView
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="0dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_appicon"
-                    android:contentDescription="App Logo" />
-
-            </com.google.android.material.card.MaterialCardView>
+                android:src="@drawable/img_logo"
+                android:scaleType="fitStart"
+                />
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:layout_weight="1"
-                android:layout_marginStart="16dp"
-                android:text="Winner Software"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="@string/app_name"
                 android:textColor="@color/navy_blue"
-                android:textSize="18sp"
+                android:textSize="@dimen/txt_medium"
                 android:textStyle="bold"
-                android:fontFamily="@font/playfair" />
+                android:fontFamily="@font/playfair"
+                />
 
             <ImageView
                 android:id="@+id/iv_hamburger"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_hamburger"
-                android:padding="8dp"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_hamburger"
+                android:padding="@dimen/margin_small"
                 android:contentDescription="Menu"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:tint="@color/navy_blue" />
+                app:tint="@color/navy_blue"
+                />
 
         </LinearLayout>
 
@@ -77,95 +72,104 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="@dimen/margin_medium">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Bienvenue,"
                     android:textColor="@color/text_secondary"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/cairo" />
+                    android:textSize="@dimen/txt_medium"
+                    android:fontFamily="@font/cairo"
+                    />
 
                 <TextView
+                    android:id="@+id/tv_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mohammed Ahmed"
+                    android:text="--"
                     android:textColor="@color/navy_blue"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/cairo" />
+                    android:fontFamily="@font/cairo"
+                    />
 
                 <View
-                    android:layout_width="50dp"
-                    android:layout_height="4dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/navy_blue" />
+                    android:layout_width="75dp"
+                    android:layout_height="3dp"
+                    android:background="@color/navy_blue"
+                    />
 
                 <!-- Action Card 1 -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="@dimen/margin_medium"
                     app:cardBackgroundColor="@color/navy_blue"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp"
+                    app:cardCornerRadius="@dimen/corner1"
                     app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="20dp">
+                        android:padding="@dimen/margin_medium">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Tableau de Bord"
                             android:textColor="@color/white"
                             android:fontFamily="@font/cairo"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Gérez vos équipements et demandes d'assistance."
                             android:textColor="@color/white"
                             android:alpha="0.85"
                             android:fontFamily="@font/cairo"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/txt_small"
+                            />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/mb_addTicket"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginTop="20dp"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="@dimen/margin_medium"
                             android:text="Nouveau Ticket"
                             android:textAllCaps="false"
-                            android:textColor="@color/navy_blue"
-                            app:backgroundTint="@color/white"
-                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            app:backgroundTint="@color/navy_blue"
+                            app:strokeColor="@color/white"
+                            app:strokeWidth="1dp"
+                            android:textSize="@dimen/txt_small"
                             android:textStyle="bold"
                             android:fontFamily="@font/cairo"
-                            app:cornerRadius="12dp"
+                            app:cornerRadius="@dimen/corner1"
                             app:icon="@android:drawable/ic_input_add"
-                            app:iconTint="@color/navy_blue" />
+                            app:iconTint="@color/white"
+                            />
 
                     </LinearLayout>
+
                 </com.google.android.material.card.MaterialCardView>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="@dimen/margin_medium"
                     android:layout_marginBottom="12dp"
                     android:text="DEMANDES DES SERVICES"
                     android:textColor="@color/text_primary"
                     android:textSize="14sp"
                     android:fontFamily="@font/cairo"
                     android:textStyle="bold"
-                    android:alpha="0.8" />
+                    android:alpha="0.8"
+                    />
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -179,7 +183,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:visibility="gone"
-                        tools:listitem="@layout/item_client_demande" />
+                        tools:listitem="@layout/item_client_demande"
+                        />
 
                     <ProgressBar
                         android:id="@+id/pb_home_demandes"
@@ -187,7 +192,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:indeterminateTint="@color/navy_blue"
-                        android:visibility="visible" />
+                        android:visibility="visible"
+                        />
 
                     <TextView
                         android:id="@+id/tvEmptyDemandes"
@@ -198,7 +204,8 @@
                         android:textSize="14sp"
                         android:gravity="center"
                         android:visibility="gone"
-                        android:fontFamily="@font/cairo" />
+                        android:fontFamily="@font/cairo"
+                        />
 
                 </FrameLayout>
 
@@ -220,22 +227,24 @@
                         android:padding="20dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Support Urgent 24/7"
                             android:textColor="@color/red"
-                            android:textSize="18sp"
+                            android:textSize="@dimen/txt_medium"
                             android:fontFamily="@font/cairo"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="5dp"
                             android:text="Assistance immédiate pour les pannes critiques."
                             android:textColor="@color/text_secondary"
                             android:fontFamily="@font/cairo"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/txt_small"
+                            />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/mb_callTechnician"
@@ -253,9 +262,11 @@
                             app:strokeWidth="1dp"
                             app:cornerRadius="12dp"
                             app:icon="@drawable/ic_phone"
-                            app:iconTint="@color/red" />
+                            app:iconTint="@color/red"
+                            />
 
                     </LinearLayout>
+
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
@@ -273,7 +284,8 @@
             app:labelVisibilityMode="labeled"
             app:elevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/menu_client_bottom" />
+            app:menu="@menu/bottom_menu_client"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -287,6 +299,6 @@
         app:menu="@menu/drawer_menu_client"
         app:itemIconTint="@color/navy_blue"
         app:itemTextColor="@color/text_primary"
-        app:itemShapeFillColor="@color/softGray" />
+        />
 
 </androidx.drawerlayout.widget.DrawerLayout>

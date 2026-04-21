@@ -26,7 +26,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_appicon"
+                android:src="@drawable/img_appicon"
                 app:strokeColor="@color/softGray"
                 app:strokeWidth="1dp"
                 />
@@ -125,7 +125,7 @@
                 android:layout_height="@dimen/margin_large"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:padding="0dp"
-                android:src="@drawable/ic_call"
+                android:src="@drawable/img_call"
                 app:iconGravity="textStart"
                 />
 
@@ -145,7 +145,7 @@
                 android:layout_height="@dimen/margin_large"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:padding="0dp"
-                android:src="@drawable/ic_trash"
+                android:src="@drawable/img_trash"
                 app:iconGravity="textStart"
                 />
 

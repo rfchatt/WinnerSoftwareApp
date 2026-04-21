@@ -1,15 +1,13 @@
-package com.example.winnersoftwareapp.Client
+package com.example.winnersoftwareapp.views.client
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.winnersoftwareapp.Admin.adminHome
+import com.example.winnersoftwareapp.views.admin.adminHome
 import com.example.winnersoftwareapp.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
