@@ -2,19 +2,18 @@ package com.example.winnersoftwareapp.views.client
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.LinearLayout
+import android.view.LayoutInflater
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.example.winnersoftwareapp.views.MainActivity
 import com.example.winnersoftwareapp.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.card.MaterialCardView
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -113,26 +112,22 @@ class clientProfil : AppCompatActivity() {
 
     private fun showEditProfileDialog() {
         val userId = auth.currentUser?.uid ?: return
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Modifier le profil")
+        
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.alert_client_edit_profile, null)
+        val etName = dialogView.findViewById<TextInputEditText>(R.id.et_edit_name)
+        val etPhone = dialogView.findViewById<TextInputEditText>(R.id.et_edit_phone)
+        val btnSave = dialogView.findViewById<MaterialButton>(R.id.btn_save_profile)
 
-        val layout = LinearLayout(this)
-        layout.orientation = LinearLayout.VERTICAL
-        layout.setPadding(50, 40, 50, 10)
-
-        val etName = EditText(this)
-        etName.hint = "Nom complet"
         etName.setText(tvProfileName.text)
-        layout.addView(etName)
-
-        val etPhone = EditText(this)
-        etPhone.hint = "Téléphone"
         etPhone.setText(tvDisplayPhone.text)
-        layout.addView(etPhone)
 
-        builder.setView(layout)
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
 
-        builder.setPositiveButton("Enregistrer") { _, _ ->
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        btnSave.setOnClickListener {
             val newName = etName.text.toString().trim()
             val newPhone = etPhone.text.toString().trim()
 
@@ -143,12 +138,14 @@ class clientProfil : AppCompatActivity() {
                 )
                 database.reference.child("users").child(userId).updateChildren(updates).addOnSuccessListener {
                     Toast.makeText(this, "Profil mis à jour !", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
                 }
+            } else {
+                Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show()
             }
         }
 
-        builder.setNegativeButton("Annuler") { dialog, _ -> dialog.dismiss() }
-        builder.show()
+        dialog.show()
     }
 
     private fun setupBottomNavigation() {

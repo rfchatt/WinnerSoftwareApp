@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:background="@color/surface_background">
 
-        <!-- Header المحسن مع اللوغو -->
+        <!-- Header -->
         <LinearLayout
             android:id="@+id/header"
             android:layout_width="match_parent"
@@ -107,6 +107,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/tv_tickets_open_count"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -149,6 +150,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/tv_clients_tt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -163,7 +165,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="Clients Totaux"
+                                android:text="Clients Approuvés"
                                 android:textColor="@color/black"
                                 android:fontFamily="@font/cairo"
                                 android:textSize="@dimen/txt_small"

@@ -27,6 +27,7 @@ class adminHome : AppCompatActivity() {
     private lateinit var rvUsers: RecyclerView
     private lateinit var progressBar: ProgressBar
     private lateinit var tvEmpty: TextView
+    private lateinit var tvClientsTt: TextView
     private lateinit var adapter: AdminUserAdapter
     private val pendingUsers = mutableListOf<User>()
 
@@ -41,6 +42,7 @@ class adminHome : AppCompatActivity() {
         initViews()
         setupRecyclerView()
         loadPendingUsers()
+        loadApprovedClientsCount()
         setupNavigation()
     }
 
@@ -48,10 +50,10 @@ class adminHome : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
         ivHamburger = findViewById(R.id.iv_hamburger)
-        rvUsers = findViewById(R.id.rv_admin_demandes) // سنستخدم هذا الـ RecyclerView لعرض المستخدمين الجدد مؤقتاً
+        rvUsers = findViewById(R.id.rv_admin_demandes)
         progressBar = findViewById(R.id.pb_admin_loading)
         tvEmpty = findViewById(R.id.tv_admin_empty_demandes)
-        
+        tvClientsTt = findViewById(R.id.tv_clients_tt)
         ivHamburger.setOnClickListener { drawerLayout.openDrawer(GravityCompat.START) }
     }
 
@@ -64,7 +66,6 @@ class adminHome : AppCompatActivity() {
     private fun loadPendingUsers() {
         progressBar.visibility = View.VISIBLE
         
-        // جلب المستخدمين الذين حالتهم "pending" فقط
         database.orderByChild("status").equalTo("pending")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -91,12 +92,31 @@ class adminHome : AppCompatActivity() {
             })
     }
 
+    private fun loadApprovedClientsCount() {
+        database.orderByChild("status").equalTo("approved")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val count = snapshot.childrenCount
+                    tvClientsTt.text = count.toString()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    tvClientsTt.text = "0"
+                }
+            })
+    }
+
     private fun setupNavigation() {
         val bottom_menu = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottom_menu.selectedItemId = R.id.admin_home
         
         navView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
+                R.id.nav_tickets -> {
+                    startActivity(Intent(this, AdminTicketsActivity::class.java))
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
                 R.id.nav_logout -> {
                     FirebaseAuth.getInstance().signOut()
                     startActivity(Intent(this, MainActivity::class.java).apply {

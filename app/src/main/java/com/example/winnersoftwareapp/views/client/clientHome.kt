@@ -28,6 +28,8 @@ class clientHome : AppCompatActivity() {
     private lateinit var navView: NavigationView
     private lateinit var drawerLayout: DrawerLayout
     lateinit var tvUsername: TextView
+    private lateinit var tvHeaderUsername: TextView
+    private lateinit var tvHeaderUserICE: TextView
     private lateinit var mb_addTicket: MaterialButton
     private lateinit var mb_callTechnician: MaterialButton
     private lateinit var auth: FirebaseAuth
@@ -56,9 +58,23 @@ class clientHome : AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        // Navigation Drawer
+        // Navigation Drawer Item Clicks
         navView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
+                R.id.nav_home -> {
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                R.id.nav_my_demandes -> {
+                    startActivity(Intent(this, clientDemandes::class.java))
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                R.id.nav_profile -> {
+                    startActivity(Intent(this, clientProfil::class.java))
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
                 R.id.nav_logout -> {
                     auth.signOut()
                     val intent = Intent(this, MainActivity::class.java)
@@ -109,6 +125,19 @@ class clientHome : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
         tvUsername = findViewById(R.id.tv_user_name)
+        
+        // Access Navigation Header root layout directly
+        val headerView = navView.getHeaderView(0)
+        
+        tvHeaderUsername = headerView.findViewById(R.id.tv_user_name)
+        tvHeaderUserICE = headerView.findViewById(R.id.tv_user_ice)
+
+        // Set click listener on the header root view
+        headerView.setOnClickListener {
+            startActivity(Intent(this, clientProfil::class.java))
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
         mb_addTicket = findViewById(R.id.mb_addTicket)
         mb_callTechnician = findViewById(R.id.mb_callTechnician)
         
@@ -129,7 +158,12 @@ class clientHome : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     userStatus = snapshot.child("status").value?.toString() ?: "pending"
-                    tvUsername.text = snapshot.child("name").value?.toString() ?: "Client"
+                    val userName = snapshot.child("name").value?.toString() ?: "Client"
+                    val userIce = snapshot.child("ice").value?.toString() ?: "..."
+                    
+                    tvUsername.text = userName
+                    tvHeaderUsername.text = userName
+                    tvHeaderUserICE.text = "ICE : $userIce"
                 }
             }
             override fun onCancelled(error: DatabaseError) {}

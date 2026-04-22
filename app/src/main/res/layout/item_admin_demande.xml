@@ -121,8 +121,8 @@
 
             <ImageView
                 android:id="@+id/ivCall"
-                android:layout_width="@dimen/margin_large"
-                android:layout_height="@dimen/margin_large"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:padding="0dp"
                 android:src="@drawable/img_call"
@@ -131,8 +131,8 @@
 
             <ImageView
                 android:id="@+id/imEmail"
-                android:layout_width="@dimen/margin_large"
-                android:layout_height="@dimen/margin_large"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:padding="0dp"
                 android:src="@drawable/ic_email"
@@ -141,8 +141,8 @@
 
             <ImageView
                 android:id="@+id/ivDelete"
-                android:layout_width="@dimen/margin_large"
-                android:layout_height="@dimen/margin_large"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:padding="0dp"
                 android:src="@drawable/img_trash"

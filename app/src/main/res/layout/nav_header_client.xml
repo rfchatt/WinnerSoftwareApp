@@ -2,36 +2,44 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_header_root"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:background="@color/blue"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="24dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:clickable="true"
+    android:focusable="true"
+    android:backgroundTint="@color/blue"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:foreground="?attr/selectableItemBackground">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/img_logo"
+        android:contentDescription="@null"
         />
 
     <TextView
+        android:id="@+id/tv_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/playfair"
-        android:text="Panneau de Client"
+        android:fontFamily="@font/cairo"
+        android:text="--"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_medium"
         android:textStyle="bold"
         />
 
     <TextView
+        android:id="@+id/tv_user_ice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/cairo"
-        android:text="Gestion du tableau de bord client"
+        android:text="ICE : ..."
         android:textColor="@color/white"
         android:textSize="@dimen/txt_small"
         />

@@ -59,8 +59,14 @@
             android:screenOrientation="portrait"
             tools:ignore="DiscouragedApi,LockedOrientationActivity"
             />
-        
-        <!-- إضافة الصفحة الجديدة هنا -->
+
+        <activity
+            android:name=".views.client.clientDemandes"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity"
+            />
+
         <activity
             android:name=".views.client.CreateTicketActivity"
             android:exported="false"
@@ -84,6 +90,13 @@
 
         <activity
             android:name=".views.admin.adminUserDetails"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity"
+            />
+
+        <activity
+            android:name=".views.admin.AdminTicketsActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="DiscouragedApi,LockedOrientationActivity"
