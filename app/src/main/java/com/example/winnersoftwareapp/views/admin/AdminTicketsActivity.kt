@@ -23,11 +23,10 @@ import com.google.firebase.database.*
 class AdminTicketsActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var navView: NavigationView
-    private lateinit var ivHamburger: ImageView
     private lateinit var rvTickets: RecyclerView
     private lateinit var progressBar: ProgressBar
     private lateinit var tvEmpty: TextView
+    private lateinit var btn_back_nav: ImageView
     private lateinit var adapter: AdminTicketAdapter
     private val ticketList = mutableListOf<Ticket>()
     private val usersMap = mutableMapOf<String, User>()
@@ -48,13 +47,14 @@ class AdminTicketsActivity : AppCompatActivity() {
 
     private fun initViews() {
         drawerLayout = findViewById(R.id.drawer_layout)
-        navView = findViewById(R.id.nav_view)
-        ivHamburger = findViewById(R.id.iv_hamburger)
         rvTickets = findViewById(R.id.rv_admin_tickets)
         progressBar = findViewById(R.id.pb_loading)
         tvEmpty = findViewById(R.id.tv_empty)
-        
-        ivHamburger.setOnClickListener { drawerLayout.openDrawer(GravityCompat.START) }
+
+        btn_back_nav = findViewById(R.id.btn_back_nav)
+        btn_back_nav.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setupRecyclerView() {
@@ -126,27 +126,10 @@ class AdminTicketsActivity : AppCompatActivity() {
                 }
                 R.id.admin_requests -> true
                 R.id.admin_clients -> {
-                    // Navigate to clients list if needed
+                    startActivity(Intent(this, AdminClientsActivity::class.java))
                     true
                 }
                 else -> false
-            }
-        }
-
-        navView.setNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_logout -> {
-                    FirebaseAuth.getInstance().signOut()
-                    startActivity(Intent(this, MainActivity::class.java).apply {
-                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                    })
-                    finish()
-                    true
-                }
-                else -> {
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                    true
-                }
             }
         }
     }

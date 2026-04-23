@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".views.admin.AdminTicketsActivity">
+    tools:context=".views.admin.AdminClientsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:fontFamily="@font/cairo"
-                    android:text="Tickets des clients"
+                    android:text="Clients approuvés"
                     android:textColor="@color/navy_blue"
                     android:textSize="@dimen/txt_medium"
                     android:textStyle="bold"
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:padding="@dimen/margin_medium"
+            android:padding="@dimen/margin_small"
             app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
             app:layout_constraintTop_toBottomOf="@id/header">
 
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Liste de toutes les demandes"
+                android:text="Liste des clients validés"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/txt_medium"
                 android:fontFamily="@font/cairo"
@@ -93,10 +93,10 @@
                 android:layout_height="match_parent">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_admin_tickets"
+                    android:id="@+id/rv_admin_clients"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:listitem="@layout/item_admin_demande"
+                    tools:listitem="@layout/item_approved_client"
                     />
 
                 <ProgressBar
@@ -113,7 +113,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Aucun ticket trouvé"
+                    android:text="Aucun client approuvé"
                     android:textColor="@color/hintGray"
                     android:textSize="@dimen/txt_small"
                     android:fontFamily="@font/cairo"

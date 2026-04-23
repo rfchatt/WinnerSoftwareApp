@@ -105,9 +105,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"
-                    app:cardBackgroundColor="@color/navy_blue"
+                    app:cardBackgroundColor="@color/surface_card"
                     app:cardCornerRadius="@dimen/corner1"
-                    app:strokeWidth="0dp">
+                    app:strokeColor="@color/navy_blue"
+                    app:strokeWidth="1dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -119,7 +120,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Tableau de Bord"
-                            android:textColor="@color/white"
+                            android:textColor="@color/navy_blue"
                             android:fontFamily="@font/cairo"
                             android:textSize="18sp"
                             android:textStyle="bold"
@@ -129,7 +130,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Gérez vos équipements et demandes d'assistance."
-                            android:textColor="@color/white"
+                            android:textColor="@color/navy_blue"
                             android:alpha="0.85"
                             android:fontFamily="@font/cairo"
                             android:textSize="@dimen/txt_small"
@@ -142,21 +143,28 @@
                             android:layout_marginTop="@dimen/margin_medium"
                             android:text="Nouveau Ticket"
                             android:textAllCaps="false"
-                            android:textColor="@color/white"
+                            android:textColor="@color/surface_card"
                             app:backgroundTint="@color/navy_blue"
-                            app:strokeColor="@color/white"
+                            app:strokeColor="@color/navy_blue"
                             app:strokeWidth="1dp"
                             android:textSize="@dimen/txt_small"
                             android:textStyle="bold"
                             android:fontFamily="@font/cairo"
                             app:cornerRadius="@dimen/corner1"
                             app:icon="@android:drawable/ic_input_add"
-                            app:iconTint="@color/white"
+                            app:iconTint="@color/surface_card"
                             />
 
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/navy_blue"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"

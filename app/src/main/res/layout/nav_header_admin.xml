@@ -7,22 +7,23 @@
     android:background="@color/blue"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:padding="24dp"
     android:fitsSystemWindows="true"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/img_logo"
+        android:layout_marginHorizontal="@dimen/margin_large"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/margin_medium"
         android:fontFamily="@font/playfair"
         android:text="Panneau d'Admin"
+        android:layout_marginHorizontal="@dimen/margin_large"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_medium"
         android:textStyle="bold"
@@ -34,7 +35,9 @@
         android:fontFamily="@font/cairo"
         android:text="Winner Software Management"
         android:textColor="@color/white"
+        android:layout_marginHorizontal="@dimen/margin_large"
         android:textSize="@dimen/txt_small"
+        android:layout_marginBottom="@dimen/margin_small"
         />
 
 </LinearLayout>

@@ -70,7 +70,63 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/margin_medium">
+                android:padding="@dimen/margin_small">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Les nouveau Tickets"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/txt_medium"
+                    android:fontFamily="@font/cairo"
+                    android:textStyle="bold"
+                    />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:minHeight="150dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_admin_tickets"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_new_user_validation"
+                        tools:itemCount="3"
+                        />
+
+                    <ProgressBar
+                        android:id="@+id/pb_ticket_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminateTint="@color/navy_blue"
+                        android:visibility="visible"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_no_tickets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Aucune demande récente"
+                        android:textColor="@color/hintGray"
+                        android:textSize="@dimen/txt_small"
+                        android:fontFamily="@font/cairo"
+                        android:visibility="gone"
+                        />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/navy_blue"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -84,38 +140,47 @@
 
                 <GridLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="@dimen/margin_medium"
                     android:columnCount="2"
                     android:rowCount="1">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minHeight="100dp"
+                        android:layout_height="match_parent"
+                        android:minHeight="50dp"
                         android:layout_columnWeight="1"
                         app:cardCornerRadius="@dimen/corner1"
                         android:layout_marginEnd="2dp"
-                        app:cardBackgroundColor="@color/navy_blue">
+                        app:strokeColor="@color/navy_blue"
+                        app:strokeWidth="1dp"
+                        app:cardBackgroundColor="@android:color/transparent">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:minHeight="100dp"
-                            android:gravity="center"
-                            android:padding="12dp"
-                            android:orientation="vertical">
+                            android:layout_height="match_parent"
+                            android:minHeight="50dp"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/margin_small"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/tv_tickets_open_count"
-                                android:layout_width="match_parent"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="--"
-                                android:fontFamily="@font/cairo"
-                                android:textColor="@color/white"
-                                android:textSize="26sp"
                                 android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:fontFamily="@font/cairo"
+                                android:textColor="@color/navy_blue"
+                                android:textSize="@dimen/txt_small"
+                                />
+
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_height="2dp"
+                                android:background="@color/navy_blue"
                                 />
 
                             <TextView
@@ -123,8 +188,9 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="Tickets Ouverts"
-                                android:textColor="@color/white"
-                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/navy_blue"
+                                android:textSize="@dimen/txt_small"
                                 android:fontFamily="@font/cairo"
                                 />
 
@@ -134,39 +200,49 @@
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:minHeight="100dp"
+                        android:layout_height="match_parent"
+                        android:minHeight="50dp"
                         android:layout_columnWeight="1"
                         android:layout_marginStart="2dp"
                         app:cardCornerRadius="@dimen/corner1"
-                        app:cardBackgroundColor="@color/primary_blue">
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/primary_blue"
+                        app:cardBackgroundColor="@android:color/transparent">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:minHeight="100dp"
+                            android:minHeight="50dp"
                             android:gravity="center"
-                            android:padding="@dimen/margin_medium"
-                            android:orientation="vertical">
+                            android:padding="@dimen/margin_small"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/tv_clients_tt"
-                                android:layout_width="match_parent"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="--"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/cairo"
-                                android:textSize="@dimen/txt_large"
                                 android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:text="--"
+                                android:textColor="@color/primary_blue"
+                                android:fontFamily="@font/cairo"
+                                android:textSize="@dimen/txt_small"
+                                />
+
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_height="2dp"
+                                android:background="@color/primary_blue"
                                 />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
+                                android:textStyle="bold"
                                 android:text="Clients Approuvés"
-                                android:textColor="@color/black"
+                                android:textColor="@color/primary_blue"
                                 android:fontFamily="@font/cairo"
                                 android:textSize="@dimen/txt_small"
                                 />
@@ -177,11 +253,18 @@
 
                 </GridLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/navy_blue"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"
-                    android:text="Dernières Demandes"
+                    android:text="Vérification des nouveaux clients"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/txt_medium"
                     android:fontFamily="@font/cairo"
@@ -192,7 +275,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"
-                    android:minHeight="100dp">
+                    android:minHeight="150dp">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_admin_demandes"

@@ -21,24 +21,13 @@
             android:title="Mon Profil"
             />
 
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/img_back"
+            android:title="Déconnexion"
+            android:iconTint="@color/red"
+            />
+
     </group>
-
-    <item android:title="Assistance">
-
-        <menu>
-
-            <item
-                android:id="@+id/nav_support"
-                android:icon="@drawable/img_support"
-                android:title="Aide &amp; Support"
-                />
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/img_back"
-                android:title="Déconnexion"
-                />
-        </menu>
-
-    </item>
 
 </menu>

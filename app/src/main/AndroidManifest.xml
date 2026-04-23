@@ -47,13 +47,6 @@
             />
 
         <activity
-            android:name=".views.client.clientDemande"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="DiscouragedApi,LockedOrientationActivity"
-            />
-
-        <activity
             android:name=".views.client.clientProfil"
             android:exported="false"
             android:screenOrientation="portrait"
@@ -97,6 +90,13 @@
 
         <activity
             android:name=".views.admin.AdminTicketsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity"
+            />
+
+        <activity
+            android:name=".views.admin.AdminClientsActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="DiscouragedApi,LockedOrientationActivity"

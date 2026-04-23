@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.winnersoftwareapp.R
 import com.example.winnersoftwareapp.models.Ticket
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -49,6 +50,27 @@ class clientDemandes : AppCompatActivity() {
         fabAdd.setOnClickListener {
             startActivity(Intent(this, CreateTicketActivity::class.java))
         }
+
+        // Bottom Navigation
+        val bottom_menu = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottom_menu.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.profil -> {
+                    startActivity(Intent(this, clientProfil::class.java))
+                    true
+                }
+                R.id.home -> {
+                    startActivity(Intent(this, clientHome::class.java))
+                    true
+                }
+                R.id.ticket -> {
+                    startActivity(Intent(this, CreateTicketActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+
     }
 
     private fun initViews() {

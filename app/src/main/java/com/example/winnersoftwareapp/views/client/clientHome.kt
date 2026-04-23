@@ -1,12 +1,19 @@
 package com.example.winnersoftwareapp.views.client
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -41,6 +48,7 @@ class clientHome : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var tvEmpty: TextView
 
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_client_home)
@@ -58,7 +66,11 @@ class clientHome : AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        // Navigation Drawer Item Clicks
+
+        val logoutItem = navView.menu.findItem(R.id.nav_logout)
+        val s = SpannableString(logoutItem.title)
+        s.setSpan(ForegroundColorSpan(Color.RED), 0, s.length, 0)
+        logoutItem.title = s
         navView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
@@ -119,6 +131,36 @@ class clientHome : AppCompatActivity() {
                 Toast.makeText(this, "Votre compte doit être validé pour utiliser cette fonction", Toast.LENGTH_LONG).show()
             }
         }
+
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                } else {
+                    showExitDialog()
+                }
+            }
+        })
+
+    }
+
+    private fun showExitDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.alertd_closing, null)
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(true)
+            .create()
+
+        dialogView.findViewById<Button>(R.id.btnYes).setOnClickListener {
+            finishAffinity()
+        }
+        dialogView.findViewById<TextView>(R.id.btnNo).setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show()
     }
 
     private fun initViews() {
@@ -208,13 +250,5 @@ class clientHome : AppCompatActivity() {
                     Toast.makeText(this@clientHome, "Erreur de chargement", Toast.LENGTH_SHORT).show()
                 }
             })
-    }
-
-    override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
     }
 }
