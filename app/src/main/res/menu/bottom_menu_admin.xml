@@ -5,19 +5,19 @@
     <item
         android:id="@+id/admin_clients"
         android:icon="@drawable/img_client"
-        android:title="Clients"
+        android:title="@string/gestion_clients"
         />
 
     <item
         android:id="@+id/admin_home"
         android:icon="@drawable/img_home"
-        android:title="Tableau de Bord"
+        android:title="@string/accueil"
         />
 
     <item
         android:id="@+id/admin_requests"
         android:icon="@drawable/img_ticket"
-        android:title="Demandes"
+        android:title="@string/demandes_services"
         />
 
 </menu>

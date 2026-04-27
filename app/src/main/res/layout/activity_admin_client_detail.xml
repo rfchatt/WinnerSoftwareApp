@@ -40,7 +40,7 @@
             android:gravity="center_vertical"
             android:layout_weight="1"
             android:layout_marginStart="@dimen/margin_medium"
-            android:text="Admin Panel"
+            android:text="@string/panneau_admin"
             android:textColor="@color/navy_blue"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -78,7 +78,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Informations Personnelles"
+                        android:text="@string/infos_personnelles"
                         android:textColor="@color/navy_blue"
                         android:textStyle="bold"
                         android:fontFamily="@font/cairo"
@@ -94,7 +94,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nom Complet"
+                        android:text="@string/nom_complet"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp"
                         android:fontFamily="@font/cairo"
@@ -114,7 +114,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="E-mail"
+                        android:text="@string/adresse_email"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp"
                         android:fontFamily="@font/cairo"
@@ -134,7 +134,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Téléphone"
+                        android:text="@string/telephone"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp"
                         android:fontFamily="@font/cairo"
@@ -158,7 +158,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Historique des Tickets"
+                android:text="@string/historique_tickets"
                 android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold"

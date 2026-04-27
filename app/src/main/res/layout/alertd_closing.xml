@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fermer l'Application ?"
+            android:text="@string/fermer_app_question"
             android:gravity="center"
             android:textSize="@dimen/txt_medium"
             android:fontFamily="@font/playfair"
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_medium"
-            android:text="Oui, fermer"
+            android:text="@string/oui_fermer"
             android:textSize="@dimen/txt_small"
             android:fontFamily="@font/cairo"
             android:textColor="@color/white"
@@ -49,7 +49,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="@dimen/txt_smallest"
-            android:text="Non, pas maintenant."
+            android:text="@string/non_pas_maintenant"
             android:textColor="@color/white"
             android:fontFamily="@font/cairo"
             />

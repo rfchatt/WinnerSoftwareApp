@@ -17,7 +17,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 
 class ManageServicesActivity : AppCompatActivity() {
-
     private lateinit var rvServices: RecyclerView
     private lateinit var fabAdd: FloatingActionButton
     private lateinit var progressBar: ProgressBar

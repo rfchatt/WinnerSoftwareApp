@@ -5,31 +5,31 @@
         <item
             android:id="@+id/nav_dashboard"
             android:icon="@drawable/img_home"
-            android:title="Dashboard"
+            android:title="@string/accueil"
             />
 
         <item
             android:id="@+id/nav_clients"
             android:icon="@drawable/img_client"
-            android:title="Gestion Clients"
+            android:title="@string/gestion_clients"
             />
 
         <item
             android:id="@+id/nav_tickets"
             android:icon="@drawable/img_ticket"
-            android:title="Tickets Maintenance"
+            android:title="@string/gestion_tickets"
             />
 
         <item
             android:id="@+id/nav_services"
             android:icon="@android:drawable/ic_menu_manage"
-            android:title="Gestion Services"
+            android:title="@string/gestion_services"
             />
 
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/img_back"
-            android:title="Déconnexion"
+            android:title="@string/deconnexion"
             android:iconTint="@color/red"
             />
 

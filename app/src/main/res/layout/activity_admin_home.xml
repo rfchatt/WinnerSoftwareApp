@@ -38,7 +38,7 @@
                 android:gravity="center_vertical"
                 android:layout_weight="1"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:text="Tableau de Bord"
+                android:text="@string/panneau_admin"
                 android:textColor="@color/navy_blue"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -75,7 +75,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Statistiques des Tickets (Aujourd'hui)"
+                    android:text="@string/stats_tickets_aujourdhui"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/txt_medium"
                     android:fontFamily="@font/cairo"
@@ -100,12 +100,14 @@
                         app:cardCornerRadius="12dp"
                         app:cardElevation="2dp"
                         app:cardBackgroundColor="@color/surface_card">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="12dp"
                             android:gravity="center">
+
                             <TextView
                                 android:id="@+id/tv_stat_today_total"
                                 android:layout_width="wrap_content"
@@ -113,14 +115,19 @@
                                 android:text="0"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
-                                android:textColor="@color/navy_blue"/>
+                                android:textColor="@color/navy_blue"
+                                />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Total"
+                                android:text="@string/total"
                                 android:textSize="12sp"
-                                android:fontFamily="@font/cairo"/>
+                                android:fontFamily="@font/cairo"
+                                />
+
                         </LinearLayout>
+
                     </com.google.android.material.card.MaterialCardView>
 
                     <!-- Pending -->
@@ -149,7 +156,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="En attente"
+                                android:text="@string/en_attente"
                                 android:textSize="12sp"
                                 android:fontFamily="@font/cairo"/>
                         </LinearLayout>
@@ -181,7 +188,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="En cours"
+                                android:text="@string/en_cours"
                                 android:textSize="12sp"
                                 android:fontFamily="@font/cairo"/>
                         </LinearLayout>
@@ -213,7 +220,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Terminés"
+                                android:text="@string/termines"
                                 android:textSize="12sp"
                                 android:fontFamily="@font/cairo"/>
                         </LinearLayout>
@@ -241,7 +248,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Total Clients Approuvés"
+                            android:text="@string/total_clients_approuves"
                             android:textStyle="bold"
                             android:textColor="@color/navy_blue"
                             android:fontFamily="@font/cairo"/>
@@ -267,7 +274,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Vérification des nouveaux clients"
+                    android:text="@string/verification_nouveaux_clients"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/txt_medium"
                     android:fontFamily="@font/cairo"
@@ -302,7 +309,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Aucun nouveau client à valider"
+                        android:text="@string/aucun_nouveau_client_valider"
                         android:textColor="@color/hintGray"
                         android:textSize="@dimen/txt_small"
                         android:fontFamily="@font/cairo"

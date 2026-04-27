@@ -39,11 +39,11 @@
 
             <TextView
                 android:id="@+id/tv_toolbar_title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:fontFamily="@font/cairo"
-                android:text="Mes demandes"
+                android:text="@string/mes_demandes"
                 android:textColor="@color/navy_blue"
                 android:textSize="@dimen/txt_medium"
                 android:textStyle="bold"
@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Nouveau"
+        android:text="@string/nouveau_ticket"
         android:textColor="@color/white"
         android:fontFamily="@font/cairo"
         app:icon="@android:drawable/ic_input_add"

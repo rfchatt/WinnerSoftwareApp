@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/surface_background">
+    android:fitsSystemWindows="true"
+    android:background="@color/surface_background"
+    tools:context=".views.admin.ManageServicesActivity">
 
     <!-- Header -->
     <com.google.android.material.appbar.AppBarLayout
@@ -33,30 +35,36 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/navy_blue" />
+                app:tint="@color/navy_blue"
+                />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:fontFamily="@font/cairo"
-                android:text="Gestion des Services"
+                android:text="@string/gestion_services"
                 android:textColor="@color/navy_blue"
                 android:textSize="@dimen/txt_medium"
                 android:textStyle="bold"
                 android:layout_marginStart="70dp"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:paddingHorizontal="@dimen/margin_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_services"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="8dp"
+        android:padding="@dimen/margin_small"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header" />
+        app:layout_constraintTop_toBottomOf="@id/header"
+        tools:listitem="@layout/item_service"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_service"
@@ -67,7 +75,8 @@
         app:backgroundTint="@color/navy_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@android:color/white" />
+        app:tint="@android:color/white"
+        />
 
     <ProgressBar
         android:id="@+id/pb_loading"
@@ -77,6 +86,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

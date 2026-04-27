@@ -31,6 +31,7 @@
                 android:layout_height="40dp"
                 app:cardBackgroundColor="@color/navy_blue"
                 app:cardCornerRadius="20dp">
+
                 <TextView
                     android:id="@+id/ivClientN"
                     android:layout_width="match_parent"
@@ -39,7 +40,9 @@
                     android:text="A"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    />
+
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -57,7 +60,8 @@
                     android:textColor="@color/text_primary"
                     android:textStyle="bold"
                     android:textSize="14sp"
-                    android:fontFamily="@font/cairo" />
+                    android:fontFamily="@font/cairo"
+                    />
 
                 <TextView
                     android:id="@+id/tvTitle"
@@ -66,7 +70,9 @@
                     android:text="Ticket Title"
                     android:textColor="@color/navy_blue"
                     android:textSize="13sp"
-                    android:fontFamily="@font/cairo" />
+                    android:fontFamily="@font/cairo"
+                    />
+
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
@@ -75,6 +81,7 @@
                 app:cardBackgroundColor="#F5F5F5"
                 app:cardCornerRadius="6dp"
                 app:strokeWidth="0dp">
+
                 <TextView
                     android:id="@+id/tvProductType"
                     android:layout_width="wrap_content"
@@ -84,7 +91,9 @@
                     android:text="Type"
                     android:textColor="@color/text_secondary"
                     android:textSize="11sp"
-                    android:fontFamily="@font/cairo" />
+                    android:fontFamily="@font/cairo"
+                    />
+
             </com.google.android.material.card.MaterialCardView>
 
             <ImageView
@@ -93,7 +102,8 @@
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
                 android:src="@android:drawable/arrow_down_float"
-                app:tint="@color/hintGray" />
+                app:tint="@color/hintGray"
+                />
 
         </LinearLayout>
 
@@ -111,26 +121,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="@color/softGray"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="12dp"
+                />
 
             <TextView
                 android:id="@+id/tvClientICE"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ICE: ..."
+                android:text="@string/ice_prefix"
                 android:textColor="@color/blue"
                 android:textSize="12sp"
                 android:fontFamily="@font/cairo"
-                android:layout_marginBottom="4dp"/>
+                android:layout_marginBottom="4dp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Description:"
+                android:text="@string/description"
                 android:textStyle="bold"
                 android:textSize="12sp"
                 android:textColor="@color/text_primary"
-                android:fontFamily="@font/cairo"/>
+                android:fontFamily="@font/cairo"
+                />
 
             <TextView
                 android:id="@+id/tvDescription"
@@ -139,7 +152,8 @@
                 android:text="Issue description details..."
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp"
-                android:fontFamily="@font/cairo" />
+                android:fontFamily="@font/cairo"
+                />
 
             <!-- Status Action Buttons -->
             <LinearLayout
@@ -156,10 +170,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="4dp"
-                    android:text="En cours"
+                    android:text="@string/en_cours"
                     android:textSize="11sp"
                     android:fontFamily="@font/cairo"
-                    app:cornerRadius="8dp" />
+                    app:cornerRadius="8dp"
+                    />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_set_completed"
@@ -168,11 +183,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="4dp"
-                    android:text="Terminé"
+                    android:text="@string/termines"
                     android:textSize="11sp"
                     android:fontFamily="@font/cairo"
                     android:textColor="@color/green"
-                    app:cornerRadius="8dp" />
+                    app:cornerRadius="8dp"
+                    />
+
             </LinearLayout>
 
             <LinearLayout
@@ -189,7 +206,8 @@
                     android:padding="8dp"
                     android:src="@drawable/img_call"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_marginEnd="12dp" />
+                    android:layout_marginEnd="12dp"
+                    />
 
                 <ImageView
                     android:id="@+id/imEmail"
@@ -198,7 +216,8 @@
                     android:padding="8dp"
                     android:src="@drawable/ic_email"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_marginEnd="12dp" />
+                    android:layout_marginEnd="12dp"
+                    />
 
                 <ImageView
                     android:id="@+id/ivDelete"
@@ -207,7 +226,8 @@
                     android:padding="8dp"
                     android:src="@drawable/img_trash"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    app:tint="@color/red" />
+                    app:tint="@color/red"
+                    />
 
             </LinearLayout>
 

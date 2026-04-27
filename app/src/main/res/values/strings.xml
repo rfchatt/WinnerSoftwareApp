@@ -9,6 +9,8 @@
     <string name="registre">Registre</string>
     <string name="espace_entreprise">Espace d\'entreprise</string>
     <string name="choisissez_votre_langue">Choisissez votre langue préférée : </string>
+    <string name="francais">Français</string>
+    <string name="arabe">العربية</string>
 
     <!-- Client Login -->
     <string name="connectez_vous_ici">Connectez-vous ici</string>
@@ -22,10 +24,29 @@
 
     <!-- Client Register -->
     <string name="creer_compte">Créer un compte</string>
-    <string name="creer_compte_description">Crئةز un compte pour découvrir tous nos services après-vente !</string>
+    <string name="creer_compte_description">Créez un compte pour découvrir tous nos services après-vente !</string>
     <string name="confirmation_mot_passe">Confirmation de mot de passe</string>
     <string name="confirmer_mot_passe">Confirmer votre mot de passe</string>
     <string name="jai_deja_compte">J\'ai déjà un compte</string>
+    <string name="nom_client">Nom de Client</string>
+    <string name="numero_telephone">Numéro de téléphone</string>
+    <string name="adresse_email">Adresse e-mail</string>
+
+    <!-- Client Home -->
+    <string name="bienvenue">Bienvenue,</string>
+    <string name="gestion_equipements_desc">Gérez vos équipements et demandes d\'assistance.</string>
+    <string name="nouveau_ticket">Nouveau Ticket</string>
+    <string name="demandes_services">Demandes des Services</string>
+    <string name="aucune_demande">Aucune Demande !</string>
+    <string name="support_urgent_title">Support Urgent 24/7</string>
+    <string name="support_urgent_desc">Assistance immédiate pour les pannes critiques.</string>
+    <string name="appeler_technicien">Appeler un technicien</string>
+
+    <!-- Client Profile -->
+    <string name="chargement">Chargement...</string>
+    <string name="non_verifier">Non vérifier</string>
+    <string name="modifier_mon_profil">Modifier mon profil</string>
+    <string name="deconnexion">Déconnexion</string>
 
     <!-- Ticket Support -->
     <string name="creer_ticket">Créer un nouveau ticket</string>
@@ -39,4 +60,53 @@
     <string name="appel_urgence">Appel d\'urgence</string>
     <string name="software">Logiciel (Software)</string>
     <string name="hardware">Matériel (Hardware)</string>
+
+    <!-- Admin -->
+    <string name="administration_gestion">Administration et Gestion</string>
+    <string name="tableau_de_bord">Tableau de Bord</string>
+    <string name="stats_tickets_aujourdhui">Statistiques des Tickets (Aujourd\'hui)</string>
+    <string name="total">Total</string>
+    <string name="en_attente">En attente</string>
+    <string name="en_cours">En cours</string>
+    <string name="termines">Terminés</string>
+    <string name="total_clients_approuves">Total Clients Approuvés</string>
+    <string name="verification_nouveaux_clients">Vérification des nouveaux clients</string>
+    <string name="aucun_nouveau_client_valider">Aucun nouveau client à valider</string>
+    <string name="panneau_admin">Panneau d\'Admin</string>
+    <string name="winner_software_management">Winner Software Management</string>
+    <string name="gestion_clients">Gestion des Clients</string>
+    <string name="rechercher_ice">Rechercher par ICE...</string>
+    <string name="tous">Tous</string>
+    <string name="approuves">Approuvés</string>
+    <string name="refuses">Refusés</string>
+    <string name="aucun_client_trouve">Aucun client trouvé</string>
+    <string name="aucun_ticket_trouve">Aucun ticket trouvé</string>
+
+    <!-- Dialogs -->
+    <string name="fermer_app_question">Fermer l\'Application ?</string>
+    <string name="oui_fermer">Oui, fermer</string>
+    <string name="non_pas_maintenant">Non, pas maintenant.</string>
+    <string name="modifier_profil">Modifier le profil</string>
+    <string name="nom_complet">Nom complet</string>
+    <string name="enregistrer">Enregistrer</string>
+
+    <!-- Nav Drawers/Menus -->
+    <string name="accueil">Accueil</string>
+    <string name="mes_demandes">Mes demandes</string>
+    <string name="mon_profil">Mon Profil</string>
+    <string name="gestion_tickets">Gestion des Tickets</string>
+    <string name="gestion_services">Gestion des Services</string>
+
+    <!-- Common -->
+    <string name="service_name">Service Name</string>
+    <string name="tel_prefix">Tél: </string>
+    <string name="ice_prefix">ICE : </string>
+    <string name="telephone">Téléphone</string>
+    <string name="description_label">Description:</string>
+
+    <!-- Admin Client detail -->
+    <string name="infos_personnelles">Informations Personnelles</string>
+    <string name="historique_tickets">Historique des Tickets</string>
+    <string name="description">Description</string>
+
 </resources>

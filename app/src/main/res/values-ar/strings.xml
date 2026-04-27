@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Top Software</string>
 
     <!-- Main -->
@@ -10,12 +9,14 @@
     <string name="registre">إنشاء حساب</string>
     <string name="espace_entreprise">مساحة الشركة</string>
     <string name="choisissez_votre_langue">إختر لغتك المفضلة : </string>
+    <string name="francais">الفرنسية</string>
+    <string name="arabe">العربية</string>
 
     <!-- Client Login -->
     <string name="connectez_vous_ici">سجل دخولك هنا</string>
     <string name="bienvenue_a_nouveau">أهلاً بك، لقد اشتقنا لعودتك !</string>
-    <string name="numero_ce">رقم (CE)</string>
-    <string name="entrer_numero_ce">أدخل رقم CE الخاص بك</string>
+    <string name="numero_ice">رقم (ICE)</string>
+    <string name="entrer_numero_ice">أدخل رقم ICE الخاص بك</string>
     <string name="mot_de_passe">كلمة المرور</string>
     <string name="entrer_mot_passe">أدخل كلمة المرور الخاصة بك</string>
     <string name="mot_passe_oublie">نسيت كلمة المرور ؟</string>
@@ -27,5 +28,85 @@
     <string name="confirmation_mot_passe">تأكيد كلمة المرور</string>
     <string name="confirmer_mot_passe">أكد كلمة مرورك</string>
     <string name="jai_deja_compte">لدي حساب بالفعل</string>
+    <string name="nom_client">اسم العميل</string>
+    <string name="numero_telephone">رقم الهاتف</string>
+    <string name="adresse_email">البريد الإلكتروني</string>
+
+    <!-- Client Home -->
+    <string name="bienvenue">مرحباً،</string>
+    <string name="gestion_equipements_desc">قم بإدارة معداتك وطلبات المساعدة الخاصة بك.</string>
+    <string name="nouveau_ticket">تذكرة جديدة</string>
+    <string name="demandes_services">طلبات الخدمات</string>
+    <string name="aucune_demande">لا توجد طلبات !</string>
+    <string name="support_urgent_title">دعم عاجل 24/7</string>
+    <string name="support_urgent_desc">مساعدة فورية للأعطال الطارئة.</string>
+    <string name="appeler_technicien">اتصل بتقني</string>
+
+    <!-- Client Profile -->
+    <string name="chargement">جاري التحميل...</string>
+    <string name="non_verifier">غير محقق</string>
+    <string name="modifier_mon_profil">تعديل ملفي الشخصي</string>
+    <string name="deconnexion">تسجيل الخروج</string>
+
+    <!-- Ticket Support -->
+    <string name="creer_ticket">إنشاء تذكرة جديدة</string>
+    <string name="details_probleme">تفاصيل المشكلة</string>
+    <string name="titre_probleme">عنوان المشكلة</string>
+    <string name="description_probleme">وصف مفصل</string>
+    <string name="type_service">نوع الخدمة</string>
+    <string name="piece_jointe">مرفق (صورة)</string>
+    <string name="ajouter_photo">إضافة صورة</string>
+    <string name="envoyer_demande">إرسال الطلب</string>
+    <string name="appel_urgence">اتصال طارئ</string>
+    <string name="software">برمجيات (Software)</string>
+    <string name="hardware">أجهزة (Hardware)</string>
+
+    <!-- Admin -->
+    <string name="administration_gestion">الإدارة والتسيير</string>
+    <string name="tableau_de_bord">لوحة القيادة</string>
+    <string name="stats_tickets_aujourdhui">إحصائيات التذاكر (اليوم)</string>
+    <string name="total">المجموع</string>
+    <string name="en_attente">في الانتظار</string>
+    <string name="en_cours">قيد التنفيذ</string>
+    <string name="termines">مكتملة</string>
+    <string name="total_clients_approuves">إجمالي العملاء المعتمدين</string>
+    <string name="verification_nouveaux_clients">التحقق من العملاء الجدد</string>
+    <string name="aucun_nouveau_client_valider">لا يوجد عملاء جدد للتحقق</string>
+    <string name="panneau_admin">لوحة الإدارة</string>
+    <string name="winner_software_management">إدارة Top Software</string>
+    <string name="rechercher_ice">بحث عن طريق ICE...</string>
+    <string name="tous">الكل</string>
+    <string name="approuves">معتمد</string>
+    <string name="refuses">مرفوض</string>
+    <string name="aucun_client_trouve">لم يتم العثور على أي عميل</string>
+    <string name="gestion_tickets">إدارة التذاكر</string>
+    <string name="aucun_ticket_trouve">لم يتم العثور على تذاكر</string>
+
+    <!-- Dialogs -->
+    <string name="fermer_app_question">إغلاق التطبيق ؟</string>
+    <string name="oui_fermer">نعم، أغلق</string>
+    <string name="non_pas_maintenant">ليس الآن.</string>
+    <string name="modifier_profil">تعديل الملف الشخصي</string>
+    <string name="nom_complet">الاسم الكامل</string>
+    <string name="enregistrer">حفظ</string>
+
+    <!-- Nav Drawers/Menus -->
+    <string name="accueil">الرئيسية</string>
+    <string name="mes_demandes">طلباتي</string>
+    <string name="mon_profil">حسابي</string>
+    <string name="gestion_clients">إدارة الزبناء</string>
+    <string name="gestion_services">إدارة الخدمات</string>
+
+    <!-- Common -->
+    <string name="service_name">اسم الخدمة</string>
+    <string name="tel_prefix">الهاتف: </string>
+    <string name="ice_prefix">ICE : </string>
+    <string name="telephone">الهاتف</string>
+    <string name="description_label">الوصف:</string>
+
+    <!-- Admin Client detail -->
+    <string name="infos_personnelles">المعلومات الشخصية</string>
+    <string name="historique_tickets">سجل التذاكر</string>
+    <string name="description">الوصف</string>
 
 </resources>

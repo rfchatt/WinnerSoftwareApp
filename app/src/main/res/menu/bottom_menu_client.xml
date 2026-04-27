@@ -6,21 +6,21 @@
     <item
         android:id="@+id/profil"
         app:showAsAction="always"
-        android:title="Profil"
+        android:title="@string/mon_profil"
         android:icon="@drawable/ic_profil"
         />
 
     <item
         android:id="@+id/home"
         app:showAsAction="always"
-        android:title="Tableau de Bord"
+        android:title="@string/accueil"
         android:icon="@drawable/img_home"
         />
 
     <item
         android:id="@+id/ticket"
         app:showAsAction="always"
-        android:title="Ticket"
+        android:title="@string/gestion_tickets"
         android:icon="@drawable/img_ticket"
         />
 

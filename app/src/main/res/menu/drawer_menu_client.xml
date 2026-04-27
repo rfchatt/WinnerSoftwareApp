@@ -6,25 +6,25 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/img_home"
-            android:title="Accueil"
+            android:title="@string/accueil"
             />
 
         <item
             android:id="@+id/nav_my_demandes"
             android:icon="@drawable/img_ticket"
-            android:title="Mes Demandes"
+            android:title="@string/mes_demandes"
             />
 
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profil"
-            android:title="Mon Profil"
+            android:title="@string/mon_profil"
             />
 
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/img_back"
-            android:title="Déconnexion"
+            android:title="@string/deconnexion"
             android:iconTint="@color/red"
             />
 
