@@ -38,9 +38,9 @@
                 android:gravity="center_vertical"
                 android:layout_weight="1"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:text="Admin Panel"
+                android:text="Tableau de Bord"
                 android:textColor="@color/navy_blue"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/playfair"
                 />
@@ -75,195 +75,198 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Les nouveau Tickets"
+                    android:text="Statistiques des Tickets (Aujourd'hui)"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/txt_medium"
                     android:fontFamily="@font/cairo"
                     android:textStyle="bold"
-                    />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:minHeight="150dp">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_admin_tickets"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:listitem="@layout/item_new_user_validation"
-                        tools:itemCount="3"
-                        />
-
-                    <ProgressBar
-                        android:id="@+id/pb_ticket_content"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:indeterminateTint="@color/navy_blue"
-                        android:visibility="visible"
-                        />
-
-                    <TextView
-                        android:id="@+id/tv_no_tickets"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Aucune demande récente"
-                        android:textColor="@color/hintGray"
-                        android:textSize="@dimen/txt_small"
-                        android:fontFamily="@font/cairo"
-                        android:visibility="gone"
-                        />
-
-                </FrameLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/navy_blue"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Statistiques Globales"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/txt_medium"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/cairo"
+                    android:layout_marginBottom="8dp"
                     />
 
                 <GridLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_height="wrap_content"
                     android:columnCount="2"
-                    android:rowCount="1">
+                    android:rowCount="2"
+                    android:alignmentMode="alignMargins"
+                    android:columnOrderPreserved="false">
 
+                    <!-- Today's Total -->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:minHeight="50dp"
+                        android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
-                        app:cardCornerRadius="@dimen/corner1"
-                        android:layout_marginEnd="2dp"
-                        app:strokeColor="@color/navy_blue"
-                        app:strokeWidth="1dp"
-                        app:cardBackgroundColor="@android:color/transparent">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:minHeight="50dp"
-                            android:gravity="center_vertical"
-                            android:padding="@dimen/margin_small"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tv_tickets_open_count"
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="--"
-                                android:textStyle="bold"
-                                android:paddingHorizontal="5dp"
-                                android:fontFamily="@font/cairo"
-                                android:textColor="@color/navy_blue"
-                                android:textSize="@dimen/txt_small"
-                                />
-
-                            <View
-                                android:layout_width="2dp"
-                                android:layout_height="2dp"
-                                android:background="@color/navy_blue"
-                                />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Tickets Ouverts"
-                                android:textStyle="bold"
-                                android:textColor="@color/navy_blue"
-                                android:textSize="@dimen/txt_small"
-                                android:fontFamily="@font/cairo"
-                                />
-
-                        </LinearLayout>
-
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:minHeight="50dp"
-                        android:layout_columnWeight="1"
-                        android:layout_marginStart="2dp"
-                        app:cardCornerRadius="@dimen/corner1"
-                        app:strokeWidth="1dp"
-                        app:strokeColor="@color/primary_blue"
-                        app:cardBackgroundColor="@android:color/transparent">
-
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="@color/surface_card">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:minHeight="50dp"
-                            android:gravity="center"
-                            android:padding="@dimen/margin_small"
-                            android:orientation="horizontal">
-
+                            android:orientation="vertical"
+                            android:padding="12dp"
+                            android:gravity="center">
                             <TextView
-                                android:id="@+id/tv_clients_tt"
-                                android:layout_width="40dp"
+                                android:id="@+id/tv_stat_today_total"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:text="0"
+                                android:textSize="20sp"
                                 android:textStyle="bold"
-                                android:paddingHorizontal="5dp"
-                                android:text="--"
-                                android:textColor="@color/primary_blue"
-                                android:fontFamily="@font/cairo"
-                                android:textSize="@dimen/txt_small"
-                                />
-
-                            <View
-                                android:layout_width="2dp"
-                                android:layout_height="2dp"
-                                android:background="@color/primary_blue"
-                                />
-
+                                android:textColor="@color/navy_blue"/>
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:textStyle="bold"
-                                android:text="Clients Approuvés"
-                                android:textColor="@color/primary_blue"
-                                android:fontFamily="@font/cairo"
-                                android:textSize="@dimen/txt_small"
-                                />
-
+                                android:text="Total"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/cairo"/>
                         </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
+                    <!-- Pending -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#FFF3E0"> <!-- Light Orange -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="12dp"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tv_stat_pending"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:textColor="#E65100"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="En attente"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/cairo"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- In Progress -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#E3F2FD"> <!-- Light Blue -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="12dp"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tv_stat_in_progress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:textColor="#0D47A1"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="En cours"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/cairo"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Completed -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#E8F5E9"> <!-- Light Green -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="12dp"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tv_stat_completed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:textColor="#1B5E20"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Terminés"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/cairo"/>
+                        </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
                 </GridLayout>
 
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/surface_card"
+                    app:strokeColor="@color/primary_blue"
+                    app:strokeWidth="1dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Total Clients Approuvés"
+                            android:textStyle="bold"
+                            android:textColor="@color/navy_blue"
+                            android:fontFamily="@font/cairo"/>
+                        <TextView
+                            android:id="@+id/tv_clients_tt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary_blue"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:background="@color/navy_blue"
-                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="@color/softGray"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
                     />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_medium"
                     android:text="Vérification des nouveaux clients"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/txt_medium"
@@ -282,8 +285,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:visibility="gone"
-                        tools:listitem="@layout/item_admin_demande"
-                        tools:itemCount="3"
+                        tools:listitem="@layout/item_new_user_validation"
                         />
 
                     <ProgressBar
@@ -300,7 +302,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Aucune demande récente"
+                        android:text="Aucun nouveau client à valider"
                         android:textColor="@color/hintGray"
                         android:textSize="@dimen/txt_small"
                         android:fontFamily="@font/cairo"

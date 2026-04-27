@@ -3,6 +3,7 @@ package com.example.winnersoftwareapp.views.client
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -42,6 +43,7 @@ class clientHome : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
     private var userStatus: String = "pending"
+    private var companyGeneralPhone: String? = null
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: TicketAdapter
@@ -60,78 +62,21 @@ class clientHome : AppCompatActivity() {
         setupRecyclerView()
         fetchUserData()
         fetchUserTickets()
+        loadCompanyPhone()
 
-        // Hamburger Menu
         findViewById<ImageView>(R.id.iv_hamburger).setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-
-        val logoutItem = navView.menu.findItem(R.id.nav_logout)
-        val s = SpannableString(logoutItem.title)
-        s.setSpan(ForegroundColorSpan(Color.RED), 0, s.length, 0)
-        logoutItem.title = s
-        navView.setNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                    true
-                }
-                R.id.nav_my_demandes -> {
-                    startActivity(Intent(this, clientDemandes::class.java))
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                    true
-                }
-                R.id.nav_profile -> {
-                    startActivity(Intent(this, clientProfil::class.java))
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                    true
-                }
-                R.id.nav_logout -> {
-                    auth.signOut()
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                    startActivity(intent)
-                    finish()
-                    true
-                }
-                else -> {
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                    true
-                }
-            }
-        }
-
-        // Bottom Navigation
-        val bottom_menu = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottom_menu.selectedItemId = R.id.home
-        bottom_menu.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.profil -> {
-                    startActivity(Intent(this, clientProfil::class.java))
-                    true
-                }
-                R.id.home -> true
-                R.id.ticket -> {
-                    startActivity(Intent(this, CreateTicketActivity::class.java))
-                    true
-                }
-                else -> false
-            }
-        }
+        setupNavigationListeners()
 
         mb_addTicket.setOnClickListener {
             startActivity(Intent(this, CreateTicketActivity::class.java))
         }
 
         mb_callTechnician.setOnClickListener {
-            if (userStatus == "approved") {
-                Toast.makeText(this, "Appel du technicien...", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Votre compte doit être validé pour utiliser cette fonction", Toast.LENGTH_LONG).show()
-            }
+            handleCallRequest()
         }
-
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -142,7 +87,70 @@ class clientHome : AppCompatActivity() {
                 }
             }
         })
+    }
 
+    private fun loadCompanyPhone() {
+        database.reference.child("services").limitToFirst(1)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (child in snapshot.children) {
+                        companyGeneralPhone = child.child("phone").value?.toString()
+                    }
+                }
+                override fun onCancelled(error: DatabaseError) {}
+            })
+    }
+
+    private fun handleCallRequest() {
+        if (userStatus != "approved") {
+            Toast.makeText(this, "Votre compte doit être validé", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        if (!companyGeneralPhone.isNullOrEmpty()) {
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:$companyGeneralPhone")
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, "Service d'appel indisponible pour le moment", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun setupNavigationListeners() {
+        val logoutItem = navView.menu.findItem(R.id.nav_logout)
+        val s = SpannableString(logoutItem.title)
+        s.setSpan(ForegroundColorSpan(Color.RED), 0, s.length, 0)
+        logoutItem.title = s
+        
+        navView.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> drawerLayout.closeDrawer(GravityCompat.START)
+                R.id.nav_my_demandes -> startActivity(Intent(this, clientDemandes::class.java))
+                R.id.nav_profile -> startActivity(Intent(this, clientProfil::class.java))
+                R.id.nav_logout -> performLogout()
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
+
+        val bottom_menu = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottom_menu.selectedItemId = R.id.home
+        bottom_menu.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.profil -> { startActivity(Intent(this, clientProfil::class.java)); true }
+                R.id.home -> true
+                R.id.ticket -> { startActivity(Intent(this, CreateTicketActivity::class.java)); true }
+                else -> false
+            }
+        }
+    }
+
+    private fun performLogout() {
+        auth.signOut()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
+        finish()
     }
 
     private fun showExitDialog() {
@@ -158,7 +166,6 @@ class clientHome : AppCompatActivity() {
         dialogView.findViewById<TextView>(R.id.btnNo).setOnClickListener {
             dialog.dismiss()
         }
-
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
         dialog.show()
     }
@@ -167,14 +174,10 @@ class clientHome : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
         tvUsername = findViewById(R.id.tv_user_name)
-        
-        // Access Navigation Header root layout directly
         val headerView = navView.getHeaderView(0)
-        
         tvHeaderUsername = headerView.findViewById(R.id.tv_user_name)
         tvHeaderUserICE = headerView.findViewById(R.id.tv_user_ice)
 
-        // Set click listener on the header root view
         headerView.setOnClickListener {
             startActivity(Intent(this, clientProfil::class.java))
             drawerLayout.closeDrawer(GravityCompat.START)
@@ -182,7 +185,6 @@ class clientHome : AppCompatActivity() {
 
         mb_addTicket = findViewById(R.id.mb_addTicket)
         mb_callTechnician = findViewById(R.id.mb_callTechnician)
-        
         recyclerView = findViewById(R.id.recyclerViewDemandes)
         progressBar = findViewById(R.id.pb_home_demandes)
         tvEmpty = findViewById(R.id.tvEmptyDemandes)
@@ -202,7 +204,6 @@ class clientHome : AppCompatActivity() {
                     userStatus = snapshot.child("status").value?.toString() ?: "pending"
                     val userName = snapshot.child("name").value?.toString() ?: "Client"
                     val userIce = snapshot.child("ice").value?.toString() ?: "..."
-                    
                     tvUsername.text = userName
                     tvHeaderUsername.text = userName
                     tvHeaderUserICE.text = "ICE : $userIce"
@@ -214,15 +215,8 @@ class clientHome : AppCompatActivity() {
 
     private fun fetchUserTickets() {
         val userId = auth.currentUser?.uid ?: return
-        
-        // Show progress bar initially
         progressBar.visibility = View.VISIBLE
-        recyclerView.visibility = View.GONE
-        tvEmpty.visibility = View.GONE
-
-        database.reference.child("tickets")
-            .orderByChild("userId")
-            .equalTo(userId)
+        database.reference.child("tickets").orderByChild("userId").equalTo(userId)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val tickets = mutableListOf<Ticket>()
@@ -230,10 +224,7 @@ class clientHome : AppCompatActivity() {
                         val ticket = ticketSnapshot.getValue(Ticket::class.java)
                         ticket?.let { tickets.add(it) }
                     }
-
-                    // Sort by timestamp (newest first)
                     tickets.sortByDescending { it.timestamp }
-
                     progressBar.visibility = View.GONE
                     if (tickets.isEmpty()) {
                         tvEmpty.visibility = View.VISIBLE
@@ -244,10 +235,8 @@ class clientHome : AppCompatActivity() {
                         adapter.updateData(tickets)
                     }
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     progressBar.visibility = View.GONE
-                    Toast.makeText(this@clientHome, "Erreur de chargement", Toast.LENGTH_SHORT).show()
                 }
             })
     }

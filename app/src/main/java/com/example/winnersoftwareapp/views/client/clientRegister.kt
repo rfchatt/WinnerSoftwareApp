@@ -2,6 +2,8 @@ package com.example.winnersoftwareapp.views.client
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +17,7 @@ class clientRegister : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,7 @@ class clientRegister : AppCompatActivity() {
         val etPass = findViewById<TextInputEditText>(R.id.tiet_client_password)
         val etConfirmPass = findViewById<TextInputEditText>(R.id.tiet_client_password_confirmation)
         val tvAlreadyHaveAccount = findViewById<TextView>(R.id.tv_already_have_account)
+        progressBar = findViewById(R.id.pb_register_loading) // تأكد من وجوده في XML أو سأضيفه برمجياً
 
         tvAlreadyHaveAccount.setOnClickListener {
             startActivity(Intent(this, clientLogin::class.java))
@@ -55,10 +59,14 @@ class clientRegister : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            btnRegister.isEnabled = false
+            progressBar.visibility = View.VISIBLE
+
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        val userId = auth.currentUser?.uid
+                        val user = auth.currentUser
+                        val userId = user?.uid
                         val userMap = hashMapOf(
                             "uid" to userId,
                             "name" to name,
@@ -66,18 +74,29 @@ class clientRegister : AppCompatActivity() {
                             "phone" to phone,
                             "email" to email,
                             "role" to "client",
-                            "status" to "pending" // الحالة الافتراضية: قيد الانتظار
+                            "status" to "pending"
                         )
                         
                         userId?.let {
                             database.reference.child("users").child(it).setValue(userMap)
                                 .addOnSuccessListener {
-                                    Toast.makeText(this, "Compte créé ! En attente de validation par l'entreprise.", Toast.LENGTH_LONG).show()
+                                    progressBar.visibility = View.GONE
+                                    Toast.makeText(this, "Compte créé ! En attente de validation.", Toast.LENGTH_LONG).show()
                                     startActivity(Intent(this, clientLogin::class.java))
                                     finish()
                                 }
+                                .addOnFailureListener { e ->
+                                    // إذا فشل حفظ البيانات، نحذف الحساب لكي لا يظهر "الإيميل مستخدم" مستقبلاً
+                                    user?.delete()?.addOnCompleteListener {
+                                        progressBar.visibility = View.GONE
+                                        btnRegister.isEnabled = true
+                                        Toast.makeText(this, "Erreur lors de la sauvegarde: ${e.message}", Toast.LENGTH_LONG).show()
+                                    }
+                                }
                         }
                     } else {
+                        progressBar.visibility = View.GONE
+                        btnRegister.isEnabled = true
                         Toast.makeText(this, "Erreur: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                     }
                 }

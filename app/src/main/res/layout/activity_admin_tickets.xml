@@ -49,7 +49,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:fontFamily="@font/cairo"
-                    android:text="Tickets des clients"
+                    android:text="Gestion des Tickets"
                     android:textColor="@color/navy_blue"
                     android:textSize="@dimen/txt_medium"
                     android:textStyle="bold"
@@ -73,20 +73,58 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:padding="@dimen/margin_medium"
+            android:padding="@dimen/margin_small"
             app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
             app:layout_constraintTop_toBottomOf="@id/header">
 
-            <TextView
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Liste de toutes les demandes"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/txt_medium"
-                android:fontFamily="@font/cairo"
-                android:textStyle="bold"
-                />
+                android:scrollbars="none"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:selectionRequired="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_all"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tous"
+                        android:checked="true"
+                        android:fontFamily="@font/cairo"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_pending"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="En attente"
+                        android:fontFamily="@font/cairo"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_in_progress"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="En cours"
+                        android:fontFamily="@font/cairo"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_completed"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Terminés"
+                        android:fontFamily="@font/cairo"/>
+
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
 
             <FrameLayout
                 android:layout_width="match_parent"

@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginBottom="@dimen/margin_small"
-    android:layout_marginHorizontal="5dp"
-    app:cardCornerRadius="@dimen/corner1"
-    app:strokeWidth="0dp"
-    app:cardElevation="0dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_marginBottom="8dp"
+    android:layout_marginHorizontal="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="200dp"
         android:orientation="vertical"
-        android:background="@color/surface_card"
-        android:padding="@dimen/margin_medium">
+        android:padding="12dp"
+        android:background="@color/surface_card">
 
+        <!-- Header / Visible Part -->
         <LinearLayout
+            android:id="@+id/ll_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/navy_blue"
-                app:cardCornerRadius="@dimen/corner2">
-
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardBackgroundColor="@color/navy_blue"
+                app:cardCornerRadius="20dp">
                 <TextView
                     android:id="@+id/ivClientN"
                     android:layout_width="match_parent"
@@ -37,11 +38,8 @@
                     android:gravity="center"
                     android:text="A"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/playfair"
                     android:textStyle="bold"
-                    android:textSize="@dimen/txt_medium"
-                    />
-
+                    android:textSize="16sp" />
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -57,136 +55,159 @@
                     android:layout_height="wrap_content"
                     android:text="Client name"
                     android:textColor="@color/text_primary"
-                    android:paddingHorizontal="@dimen/margin_medium"
                     android:textStyle="bold"
-                    android:textSize="@dimen/txt_small"
-                    android:fontFamily="@font/cairo"
-                    />
+                    android:textSize="14sp"
+                    android:fontFamily="@font/cairo" />
 
                 <TextView
-                    android:id="@+id/tvClientICE"
+                    android:id="@+id/tvTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ICE: ..."
-                    android:textColor="@color/blue"
-                    android:paddingHorizontal="@dimen/margin_medium"
-                    android:textSize="@dimen/txt_small"
-                    android:fontFamily="@font/cairo"
-                    />
-
+                    android:text="Ticket Title"
+                    android:textColor="@color/navy_blue"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/cairo" />
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/surface_card"
-                app:strokeWidth="1dp"
-                app:strokeColor="@color/navy_blue"
-                app:cardCornerRadius="@dimen/corner1">
-
+                app:cardBackgroundColor="#F5F5F5"
+                app:cardCornerRadius="6dp"
+                app:strokeWidth="0dp">
                 <TextView
                     android:id="@+id/tvProductType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minWidth="80dp"
-                    android:gravity="center_horizontal"
-                    android:paddingHorizontal="10dp"
+                    android:paddingHorizontal="8dp"
                     android:paddingVertical="2dp"
                     android:text="Type"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/txt_smallest"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/cairo"
-                    />
-
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/cairo" />
             </com.google.android.material.card.MaterialCardView>
+
+            <ImageView
+                android:id="@+id/iv_expand_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:src="@android:drawable/arrow_down_float"
+                app:tint="@color/hintGray" />
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/navy_blue"
-            android:layout_marginVertical="@dimen/corner_small"
-            />
-
+        <!-- Expandable Content / Hidden Part -->
         <LinearLayout
+            android:id="@+id/ll_expandable_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:weightSum="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Product name"
-                    android:textColor="@color/text_primary"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/txt_small"
-                    android:fontFamily="@font/cairo"
-                    />
-
-                <TextView
-                    android:id="@+id/tvDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="2"
-                    android:text="Issue description..."
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/txt_small"
-                    android:fontFamily="@font/cairo"
-                    />
-
-            </LinearLayout>
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="12dp"
+            tools:visibility="visible">
 
             <View
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:background="@color/navy_blue"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/softGray"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvClientICE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ICE: ..."
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                android:fontFamily="@font/cairo"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description:"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:fontFamily="@font/cairo"/>
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Issue description details..."
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:fontFamily="@font/cairo" />
+
+            <!-- Status Action Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_set_in_progress"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="En cours"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/cairo"
+                    app:cornerRadius="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_set_completed"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:text="Terminé"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/cairo"
+                    android:textColor="@color/green"
+                    app:cornerRadius="8dp" />
+            </LinearLayout>
 
             <LinearLayout
-                android:layout_width="40dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_marginTop="12dp"
+                android:gravity="end"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/ivCall"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:padding="0dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="8dp"
                     android:src="@drawable/img_call"
-                    app:iconGravity="textStart"
-                    android:layout_marginBottom="3dp"
-                    />
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginEnd="12dp" />
 
                 <ImageView
                     android:id="@+id/imEmail"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:padding="0dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="8dp"
                     android:src="@drawable/ic_email"
-                    app:iconGravity="textStart"
-                    android:layout_marginBottom="3dp"
-                    />
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginEnd="12dp" />
 
                 <ImageView
                     android:id="@+id/ivDelete"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:padding="0dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="8dp"
                     android:src="@drawable/img_trash"
-                    app:iconGravity="textStart"
-                    />
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/red" />
 
             </LinearLayout>
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +23,7 @@ class AdminUserAdapter(private var userList: List<User>) : RecyclerView.Adapter<
         val btnReject: MaterialButton = view.findViewById(R.id.btn_reject)
         val btnMakeAdmin: MaterialButton = view.findViewById(R.id.btn_make_admin)
         val ivInfo: ImageView = view.findViewById(R.id.iv_info)
+        val llActions: LinearLayout = view.findViewById(R.id.ll_actions)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -33,6 +35,26 @@ class AdminUserAdapter(private var userList: List<User>) : RecyclerView.Adapter<
         val user = userList[position]
         holder.tvName.text = user.name
         holder.tvIce.text = "ICE: ${user.ice}"
+
+        // Configure visibility of buttons based on status
+        when (user.status) {
+            "pending" -> {
+                holder.btnApprove.visibility = View.VISIBLE
+                holder.btnReject.visibility = View.VISIBLE
+            }
+            "approved" -> {
+                holder.btnApprove.visibility = View.GONE
+                holder.btnReject.visibility = View.VISIBLE
+            }
+            "rejected" -> {
+                holder.btnApprove.visibility = View.VISIBLE
+                holder.btnReject.visibility = View.GONE
+            }
+            else -> {
+                holder.btnApprove.visibility = View.VISIBLE
+                holder.btnReject.visibility = View.VISIBLE
+            }
+        }
 
         val database = FirebaseDatabase.getInstance().reference.child("users")
 

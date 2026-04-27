@@ -49,7 +49,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:fontFamily="@font/cairo"
-                    android:text="Clients approuvés"
+                    android:text="Gestion des Clients"
                     android:textColor="@color/navy_blue"
                     android:textSize="@dimen/txt_medium"
                     android:textStyle="bold"
@@ -77,16 +77,81 @@
             app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
             app:layout_constraintTop_toBottomOf="@id/header">
 
-            <TextView
+            <!-- Search Bar -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_search"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Liste des clients validés"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/txt_medium"
-                android:fontFamily="@font/cairo"
-                android:textStyle="bold"
-                />
+                android:layout_marginBottom="8dp"
+                android:hint="Rechercher par ICE..."
+                app:startIconDrawable="@android:drawable/ic_menu_search"
+                app:startIconTint="@color/navy_blue"
+                app:hintTextColor="@color/navy_blue"
+                app:boxStrokeColor="@color/navy_blue"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_search_ice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:fontFamily="@font/cairo"
+                    android:textSize="14sp"
+                    android:padding="12dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:selectionRequired="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_all"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tous"
+                        android:checked="true"
+                        android:fontFamily="@font/cairo"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_pending"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="En attente"
+                        android:fontFamily="@font/cairo"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_approved"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Approuvés"
+                        android:fontFamily="@font/cairo"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_rejected"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Refusés"
+                        android:fontFamily="@font/cairo"/>
+
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -96,7 +161,7 @@
                     android:id="@+id/rv_admin_clients"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:listitem="@layout/item_approved_client"
+                    tools:listitem="@layout/item_new_user_validation"
                     />
 
                 <ProgressBar
@@ -113,7 +178,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Aucun client approuvé"
+                    android:text="Aucun client trouvé"
                     android:textColor="@color/hintGray"
                     android:textSize="@dimen/txt_small"
                     android:fontFamily="@font/cairo"

@@ -1,5 +1,6 @@
 package com.example.winnersoftwareapp.views
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
@@ -18,48 +19,43 @@ import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var database: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        auth = FirebaseAuth.getInstance()
-        database = FirebaseDatabase.getInstance()
+        // تفعيل ميزة العمل بدون إنترنت لقاعدة البيانات
+        try {
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true)
+        } catch (e: Exception) {
+            // قد تظهر استثناء إذا تم استدعاؤها أكثر من مرة
+        }
 
-        // التحقق من الدخول التلقائي فقط إذا كان المستخدم "موجوداً فعلياً"
+        auth = FirebaseAuth.getInstance()
+
+        // التحقق من الدخول التلقائي السريع (أوفلاين)
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            checkUserPersistence(currentUser.uid)
+            navigateToHome()
         }
 
         setContentView(R.layout.activity_main)
 
+        initViews()
+    }
+
+    private fun initViews() {
         val mb_login = findViewById<MaterialButton>(R.id.mb_login)
         val mb_register = findViewById<MaterialButton>(R.id.mb_register)
         val mb_espace_entreprise = findViewById<MaterialButton>(R.id.mb_espace_entreprise)
         val tv_arLanguage = findViewById<TextView>(R.id.ln_arLanguage)
         val tv_frLanguage = findViewById<TextView>(R.id.ln_frLanguage)
 
-        mb_login.setOnClickListener {
-            startActivity(Intent(this, clientLogin::class.java))
-        }
-
-        mb_register.setOnClickListener {
-            startActivity(Intent(this, clientRegister::class.java))
-        }
-
-        mb_espace_entreprise.setOnClickListener {
-            startActivity(Intent(this, adminLogin::class.java))
-        }
-
-        tv_arLanguage.setOnClickListener {
-            setLocale("ar")
-        }
-
-        tv_frLanguage.setOnClickListener {
-            setLocale("fr")
-        }
-
+        mb_login.setOnClickListener { startActivity(Intent(this, clientLogin::class.java)) }
+        mb_register.setOnClickListener { startActivity(Intent(this, clientRegister::class.java)) }
+        mb_espace_entreprise.setOnClickListener { startActivity(Intent(this, adminLogin::class.java)) }
+        
+        tv_arLanguage.setOnClickListener { setLocale("ar") }
+        tv_frLanguage.setOnClickListener { setLocale("fr") }
     }
 
     private fun setLocale(languageCode: String) {
@@ -67,18 +63,36 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.setApplicationLocales(appLocale)
     }
 
-    private fun checkUserPersistence(userId: String) {
-        database.reference.child("users").child(userId).get().addOnSuccessListener { snapshot ->
+    private fun navigateToHome() {
+        val sharedPref = getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+        val role = sharedPref.getString("user_role", null)
+
+        if (role != null) {
+            val nextActivity = if (role == "admin") adminHome::class.java else clientHome::class.java
+            val intent = Intent(this, nextActivity)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        } else {
+            // إذا لم يتوفر الدور محلياً، ننتظر التحقق من قاعدة البيانات (أونلاين)
+            checkUserPersistenceOnline()
+        }
+    }
+
+    private fun checkUserPersistenceOnline() {
+        val userId = auth.currentUser?.uid ?: return
+        FirebaseDatabase.getInstance().reference.child("users").child(userId).get().addOnSuccessListener { snapshot ->
             if (snapshot.exists()) {
                 val role = snapshot.child("role").value.toString()
-                val nextActivity = if (role == "admin") adminHome::class.java else clientHome::class.java
+                
+                // حفظ الدور محلياً للمرات القادمة
+                val sharedPref = getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+                sharedPref.edit().putString("user_role", role).apply()
 
-                val intent = Intent(this, nextActivity)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
+                val nextActivity = if (role == "admin") adminHome::class.java else clientHome::class.java
+                startActivity(Intent(this, nextActivity))
                 finish()
             }
         }
     }
-
 }
